@@ -1,0 +1,109 @@
+id,title,year,journal,authors,keywords,citations
+P001,A study on cyclic voltammetry for lithium-ion battery,2011,International Journal of Electrochemical Science,Ao Yu,corrosion inhibitor;lithium-ion battery;electrode material;cyclic voltammetry,0
+P002,A study on electrode material for electrolyte,2011,International Journal of Electrochemical Science,Ao Yu,corrosion inhibitor;electrolyte;impedance spectroscopy;supercapacitor,16
+P003,An improved method for nonlinear vibration in seismic response scenarios,2011,INTERNATIONAL JOURNAL OF FATIGUE,Jinpei Cheng;YanYan Zhao,crack propagation;structural health monitoring;fatigue life;nonlinear vibration,11
+P004,Crack propagation analysis of damage detection under complex conditions,2011,Scientia Sinica,Jinpei Cheng;Yueheng Yang,crack propagation;earthquake hazard;damage detection;composite laminate,0
+P005,Exhaust emission analysis of thermodynamic cycle under complex conditions,2011,Fuel,Lifei Zhang;Xiaosong Xue,combustion;coal gasification;corrosion resistance;biomass fuel,17
+P006,Experimental investigation of nanostructure and its effect on cosmic ray,2011,ASTROPHYSICS AND SPACE SCIENCE,Jinpei Cheng,thin film;nanostructure;MEMS;cosmic ray,5
+P007,Lithium-ion battery-based evaluation of electrode material,2011,International Journal of Electrochemical Science,Ao Yu,electrode material;electrodeposition;cyclic voltammetry;supercapacitor,10
+P008,Modeling combustion with applications to biomass fuel,2011,Materials Science Forum,Jinpei Cheng;Chen Yang,thermal analysis;flame propagation;porous media;combustion,0
+P009,On the relationship between corrosion inhibitor and electrodeposition,2011,International Journal of Electrochemical Science,Ao Yu,lithium-ion battery;impedance spectroscopy;cyclic voltammetry;supercapacitor,7
+P010,On the relationship between finite element analysis and damage detection,2011,Journal of Natural Disasters,Lifei Zhang,nonlinear vibration;finite element analysis;earthquake hazard;dynamic loading,23
+P011,A study on buckling for seismic response,2012,MATEC Web of Conferences,Bin Fu;Jochen Hoefs,nonlinear vibration;dynamic loading;seismic response;composite laminate,12
+P012,A study on porous media for exhaust emission,2012,Fuel,Shan Gao,heat transfer;thermodynamic cycle;porous media;pyrolysis,3
+P013,An improved method for buckling in earthquake hazard scenarios,2012,Journal of Natural Disasters,Ding-Yu Lee;Si-Shen Feng,buckling;fatigue life;structural health monitoring;risk assessment,6
+P014,Experimental investigation of composite laminate and its effect on buckling,2012,MATEC Web of Conferences,Jinpei Cheng;Yingming Sheng,buckling;crack propagation;finite element analysis;fatigue life,2
+P015,Experimental investigation of impedance spectroscopy and its effect on cyclic voltammetry,2012,International Journal of Electrochemical Science,Ao Yu,cyclic voltammetry;electrolyte;supercapacitor;impedance spectroscopy,21
+P016,Experimental investigation of photodetector and its effect on stellar spectra,2012,ASTROPHYSICS AND SPACE SCIENCE,Sung Sik Hur;Yuhui Jiang;Li-Jing Chen,orbital dynamics;nanostructure;gas sensor;cosmic ray,12
+P017,Modeling corrosion resistance with applications to combustion,2012,Fuel,Lifei Zhang;Ligang Zhou;Jinpei Cheng,porous media;thermal analysis;combustion;biomass fuel,11
+P018,Modeling pyrolysis with applications to energy efficiency,2012,Fuel,Chen Yang;Jinpei Cheng,energy efficiency;porous media;exhaust emission;coal gasification,6
+P019,Numerical simulation of composite laminate considering seismic response,2012,NONLINEAR DYNAMICS,Zongyao Wen,damage detection;finite element analysis;dynamic loading;structural health monitoring,16
+P020,Numerical simulation of nonlinear vibration considering fatigue life,2012,Composite Structures,Fukun Chen,finite element analysis;dynamic loading;buckling;nonlinear vibration,13
+P021,Numerical simulation of structural health monitoring considering earthquake hazard,2012,Journal of Natural Disasters,Bin Fu;Zongyao Wen,buckling;risk assessment;earthquake hazard;seismic response,29
+P022,Numerical simulation of supercapacitor considering corrosion inhibitor,2012,International Journal of Electrochemical Science,Ao Yu,electrolyte;cyclic voltammetry;impedance spectroscopy;electrode material,5
+P023,Numerical simulation of thermal analysis considering heat transfer,2012,THERMAL SCIENCE,Ligang Zhou;Xiaosong Xue;Jinpei Cheng,energy efficiency;thermodynamic cycle;thermal analysis;coal gasification,0
+P024,On the relationship between corrosion resistance and thermodynamic cycle,2012,International Corrosion Conference Series,Jinpei Cheng;Xin Li;Runsheng Chen,combustion;energy efficiency;flame propagation;biomass fuel,18
+P025,On the relationship between cyclic voltammetry and supercapacitor,2012,International Journal of Electrochemical Science,Ao Yu,electrodeposition;corrosion inhibitor;lithium-ion battery;supercapacitor,1
+P026,On the relationship between exhaust emission and coal gasification,2012,THERMAL SCIENCE,Weidong Sun;Xiachen Zhi;Jinpei Cheng,combustion;thermodynamic cycle;corrosion resistance;heat transfer,7
+P027,On the relationship between feature extraction and point cloud,2012,ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING,Xiaosong Xue,object detection;image registration;digital elevation model;LiDAR,5
+P028,On the relationship between thermal analysis and corrosion resistance,2012,THERMAL SCIENCE,Xin Li;Runsheng Chen;Jinpei Cheng,heat transfer;energy efficiency;flame propagation;pyrolysis,14
+P029,Thermal analysis-based evaluation of coal gasification,2012,Fuel,Xin Li,flame propagation;thermal analysis;energy efficiency;porous media,10
+P030,A study on impedance spectroscopy for lithium-ion battery,2013,International Journal of Electrochemical Science,Ao Yu,lithium-ion battery;electrode material;electrolyte;electrodeposition,1
+P031,A study on wave propagation for sound absorption,2013,Proceedings of Meetings on Acoustics,Bin Fu;Shan Gao,ultrasonic testing;vibration isolation;noise control;sound absorption,13
+P032,An improved method for acoustic emission in ultrasonic testing scenarios,2013,Proceedings of Meetings on Acoustics,Ying Wang;Yan-Ting Shiu,acoustic emission;modal analysis;ultrasonic testing;signal denoising,13
+P033,An improved method for fatigue life in structural health monitoring scenarios,2013,Journal of Natural Disasters,Bin Fu,dynamic loading;crack propagation;composite laminate;nonlinear vibration,9
+P034,Buckling analysis of damage detection under complex conditions,2013,Journal of Natural Disasters,Weidong Sun;Xiachen Zhi,seismic response;finite element analysis;structural health monitoring;damage detection,13
+P035,Dynamic loading analysis of nonlinear vibration under complex conditions,2013,Journal of Natural Disasters,Jinpei Cheng;Lifei Zhang,crack propagation;dynamic loading;earthquake hazard;risk assessment,8
+P036,Experimental investigation of cyclic voltammetry and its effect on impedance spectroscopy,2013,International Journal of Electrochemical Science,Ao Yu,electrodeposition;supercapacitor;lithium-ion battery;impedance spectroscopy,13
+P037,Fatigue life analysis of finite element analysis under complex conditions,2013,MATEC Web of Conferences,Yingming Sheng;Xiaosong Xue;Jinpei Cheng,buckling;nonlinear vibration;crack propagation;fatigue life,22
+P038,Lithium-ion battery-based evaluation of electrodeposition,2013,International Journal of Electrochemical Science,Ao Yu,electrode material;cyclic voltammetry;electrolyte;corrosion inhibitor,17
+P039,On the relationship between coal gasification and heat transfer,2013,THERMAL SCIENCE,Lifei Zhang;Xin Li;Jinpei Cheng,energy efficiency;thermal analysis;biomass fuel;thermodynamic cycle,18
+P040,Supercapacitor analysis of electrodeposition under complex conditions,2013,International Journal of Electrochemical Science,Ao Yu,impedance spectroscopy;electrode material;electrodeposition;lithium-ion battery,0
+P041,An improved method for satellite imagery in change detection scenarios,2014,ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING,Xiaosong Xue;Jinpei Cheng,change detection;semantic segmentation;point cloud;object detection,20
+P042,An improved method for structural health monitoring in nonlinear vibration scenarios,2014,Scientia Sinica,YanYan Zhao,composite laminate;structural health monitoring;seismic response;risk assessment,13
+P043,Change detection-based evaluation of satellite imagery,2014,ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING,Shu Chien;Jinpei Cheng,object detection;semantic segmentation;satellite imagery;land cover,12
+P044,Electrode material-based evaluation of electrodeposition,2014,International Journal of Electrochemical Science,Ao Yu,impedance spectroscopy;electrode material;cyclic voltammetry;corrosion inhibitor,33
+P045,Experimental investigation of finite element analysis and its effect on structural health monitoring,2014,Journal of Natural Disasters,Lifei Zhang,buckling;fatigue life;seismic response;structural health monitoring,12
+P046,Experimental investigation of impedance spectroscopy and its effect on electrodeposition,2014,International Journal of Electrochemical Science,Ao Yu,lithium-ion battery;electrode material;cyclic voltammetry;corrosion inhibitor,19
+P047,Experimental investigation of lithium-ion battery and its effect on electrolyte,2014,International Journal of Electrochemical Science,Ao Yu,impedance spectroscopy;electrodeposition;supercapacitor;electrode material,2
+P048,Modeling cyclic voltammetry with applications to electrode material,2014,International Journal of Electrochemical Science,Ao Yu,electrolyte;lithium-ion battery;corrosion inhibitor;electrode material,17
+P049,Modeling nanostructure with applications to surface functionalization,2014,ASTROPHYSICS AND SPACE SCIENCE,Jinpei Cheng,nanostructure;cosmic ray;sensor calibration;surface functionalization,6
+P050,Numerical simulation of supercapacitor considering impedance spectroscopy,2014,International Journal of Electrochemical Science,Ao Yu,electrode material;electrolyte;electrodeposition;supercapacitor,11
+P051,On the relationship between damage detection and finite element analysis,2014,INTERNATIONAL JOURNAL OF FATIGUE,Jinpei Cheng;Xiaosong Xue;Yingming Sheng,seismic response;composite laminate;crack propagation;earthquake hazard,10
+P052,On the relationship between electrode material and electrodeposition,2014,International Journal of Electrochemical Science,Jinpei Cheng;Ao Yu,supercapacitor;cyclic voltammetry;impedance spectroscopy;electrode material,3
+P053,On the relationship between risk assessment and nonlinear vibration,2014,INTERNATIONAL JOURNAL OF FATIGUE,YanYan Zhao;Lifei Zhang;Ligang Zhou,crack propagation;buckling;earthquake hazard;damage detection,0
+P054,On the relationship between thermal analysis and energy efficiency,2014,Fuel,Yongfei Zheng;Jinpei Cheng,thermodynamic cycle;porous media;flame propagation;pyrolysis,16
+P055,Photodetector-based evaluation of MEMS,2014,APPLIED SURFACE SCIENCE,Si-Shen Feng;Ying Wang,nanostructure;sensor calibration;stellar spectra;cosmic ray,6
+P056,A study on composite laminate for fatigue life,2015,NONLINEAR DYNAMICS,Ding-Yu Lee,composite laminate;structural health monitoring;finite element analysis;buckling,8
+P057,An improved method for lithium-ion battery in electrolyte scenarios,2015,International Journal of Electrochemical Science,Ao Yu,impedance spectroscopy;supercapacitor;electrolyte;cyclic voltammetry,18
+P058,Corrosion inhibitor-based evaluation of supercapacitor,2015,International Journal of Electrochemical Science,Ao Yu,lithium-ion battery;cyclic voltammetry;supercapacitor;corrosion inhibitor,12
+P059,Corrosion resistance analysis of thermodynamic cycle under complex conditions,2015,Fuel,Jinpei Cheng;Lifei Zhang,heat transfer;thermodynamic cycle;thermal analysis;coal gasification,21
+P060,Energy efficiency analysis of corrosion resistance under complex conditions,2015,THERMAL SCIENCE,Yingming Sheng;Yongfei Zheng,combustion;energy efficiency;porous media;biomass fuel,17
+P061,Impedance spectroscopy-based evaluation of electrolyte,2015,International Journal of Electrochemical Science,Ao Yu,electrode material;corrosion inhibitor;lithium-ion battery;cyclic voltammetry,0
+P062,Modeling acoustic metamaterial with applications to acoustic emission,2015,Proceedings of Meetings on Acoustics,Weibo Ka;Bin Fu,ultrasonic testing;modal analysis;wave propagation;noise control,0
+P063,Modeling damage detection with applications to structural health monitoring,2015,Scientia Sinica,Jinpei Cheng,crack propagation;damage detection;fatigue life;nonlinear vibration,33
+P064,Modeling impedance spectroscopy with applications to electrode material,2015,International Journal of Electrochemical Science,Ao Yu,cyclic voltammetry;supercapacitor;electrode material;lithium-ion battery,0
+P065,Numerical simulation of seismic response considering fatigue life,2015,Journal of Natural Disasters,Bin Fu;Weibo Ka,earthquake hazard;dynamic loading;crack propagation;risk assessment,27
+P066,Numerical simulation of signal denoising considering wave propagation,2015,Proceedings of Meetings on Acoustics,Jinpei Cheng;Xiaosong Xue,modal analysis;acoustic emission;signal denoising;noise control,9
+P067,Photodetector-based evaluation of cosmic ray,2015,IEEE Sensors Journal,Li-Jing Chen;Yuhui Jiang,nanostructure;thin film;gas sensor;stellar spectra,10
+P068,Porous media-based evaluation of flame propagation,2015,THERMAL SCIENCE,Chen Yang,energy efficiency;coal gasification;porous media;pyrolysis,17
+P069,Experimental investigation of crack propagation and its effect on structural health monitoring,2016,Journal of Natural Disasters,Bin Fu;Si-Shen Feng,nonlinear vibration;crack propagation;buckling;composite laminate,6
+P070,Modeling biomass fuel with applications to flame propagation,2016,THERMAL SCIENCE,Lifei Zhang;Yingming Sheng,pyrolysis;exhaust emission;energy efficiency;thermal analysis,8
+P071,Modeling crack propagation with applications to buckling,2016,MATEC Web of Conferences,Bin Fu;Yueheng Yang,structural health monitoring;composite laminate;fatigue life;crack propagation,24
+P072,Nonlinear vibration-based evaluation of buckling,2016,Journal of Natural Disasters,Jinpei Cheng;Lifei Zhang,crack propagation;buckling;damage detection;composite laminate,11
+P073,Thin film-based evaluation of stellar spectra,2016,ASTROPHYSICS AND SPACE SCIENCE,Sung Sik Hur,gas sensor;orbital dynamics;MEMS;cosmic ray,0
+P074,An improved method for buckling in finite element analysis scenarios,2017,Journal of Natural Disasters,Yingming Sheng;Shu Chien,structural health monitoring;nonlinear vibration;earthquake hazard;buckling,7
+P075,An improved method for change detection in digital elevation model scenarios,2017,ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING,Jinpei Cheng;Runsheng Chen,LiDAR;satellite imagery;object detection;image registration,0
+P076,An improved method for porous media in coal gasification scenarios,2017,THERMAL SCIENCE,Jinpei Cheng;Ligang Zhou,thermal analysis;heat transfer;flame propagation;energy efficiency,18
+P077,Experimental investigation of heat transfer and its effect on energy efficiency,2017,THERMAL SCIENCE,Lifei Zhang;Ligang Zhou,combustion;pyrolysis;coal gasification;corrosion resistance,13
+P078,Modeling flame propagation with applications to thermodynamic cycle,2017,THERMAL SCIENCE,Jinpei Cheng;Yingming Sheng,energy efficiency;thermal analysis;pyrolysis;coal gasification,3
+P079,On the relationship between pyrolysis and energy efficiency,2017,THERMAL SCIENCE,Ligang Zhou;Shu Chien;Jinpei Cheng,coal gasification;flame propagation;energy efficiency;heat transfer,14
+P080,Resonance analysis of noise control under complex conditions,2017,Proceedings of Meetings on Acoustics,Bin Fu;Jochen Hoefs,acoustic emission;sound absorption;noise control;wave propagation,6
+P081,Structural health monitoring-based evaluation of fatigue life,2017,Journal of Natural Disasters,Bin Fu;Jochen Hoefs,seismic response;risk assessment;dynamic loading;earthquake hazard,19
+P082,A study on heat transfer for porous media,2018,THERMAL SCIENCE,Lifei Zhang;Ligang Zhou,coal gasification;porous media;exhaust emission;combustion,12
+P083,Experimental investigation of cosmic ray and its effect on MEMS,2018,IEEE Sensors Journal,Sung Sik Hur;Yuhui Jiang,sensor calibration;thin film;surface functionalization;nanostructure,22
+P084,Experimental investigation of damage detection and its effect on earthquake hazard,2018,Composite Structures,Shan Gao,seismic response;structural health monitoring;damage detection;fatigue life,15
+P085,Experimental investigation of seismic response and its effect on structural health monitoring,2018,MATEC Web of Conferences,Jinpei Cheng;Weidong Sun;Xiachen Zhi,risk assessment;fatigue life;structural health monitoring;dynamic loading,7
+P086,Modeling earthquake hazard with applications to structural health monitoring,2018,Journal of Natural Disasters,Bin Fu;Lihong Chen,nonlinear vibration;seismic response;dynamic loading;crack propagation,0
+P087,Modeling fatigue life with applications to composite laminate,2018,INTERNATIONAL JOURNAL OF FATIGUE,Yongfei Zheng,buckling;dynamic loading;crack propagation;risk assessment,3
+P088,Modeling nanostructure with applications to cosmic ray,2018,ASTROPHYSICS AND SPACE SCIENCE,Yuhui Jiang;Li-Jing Chen,cosmic ray;orbital dynamics;nanostructure;MEMS,12
+P089,Numerical simulation of pyrolysis considering porous media,2018,Fuel,Fukun Chen,pyrolysis;porous media;exhaust emission;combustion,3
+P090,Sensor calibration-based evaluation of thin film,2018,APPLIED SURFACE SCIENCE,Yan-Ting Shiu;Sung Sik Hur,photodetector;stellar spectra;sensor calibration;orbital dynamics,7
+P091,A study on combustion for corrosion resistance,2019,THERMAL SCIENCE,Ligang Zhou;YanYan Zhao,combustion;porous media;energy efficiency;flame propagation,17
+P092,Combustion analysis of exhaust emission under complex conditions,2019,THERMAL SCIENCE,Jinpei Cheng;Xiachen Zhi,exhaust emission;flame propagation;pyrolysis;corrosion resistance,20
+P093,Earthquake hazard-based evaluation of dynamic loading,2019,INTERNATIONAL JOURNAL OF FATIGUE,Runsheng Chen,structural health monitoring;dynamic loading;buckling;nonlinear vibration,16
+P094,Modeling wave propagation with applications to sound absorption,2019,Proceedings of Meetings on Acoustics,Bin Fu;Fukun Chen,sound absorption;signal denoising;wave propagation;noise control,18
+P095,Noise control-based evaluation of vibration isolation,2019,International Congress on Sound and Vibration,Jinpei Cheng;Yueheng Yang,noise control;acoustic emission;vibration isolation;wave propagation,8
+P096,On the relationship between earthquake hazard and risk assessment,2019,MATEC Web of Conferences,Bin Fu,composite laminate;structural health monitoring;damage detection;buckling,11
+P097,On the relationship between seismic response and buckling,2019,MATEC Web of Conferences,Xiachen Zhi;Xiaosong Xue,buckling;fatigue life;composite laminate;structural health monitoring,15
+P098,Orbital dynamics-based evaluation of MEMS,2019,ASTROPHYSICS AND SPACE SCIENCE,Sung Sik Hur;Li-Jing Chen;Yuhui Jiang,sensor calibration;orbital dynamics;photodetector;nanostructure,29
+P099,A study on nonlinear vibration for structural health monitoring,2020,Journal of Natural Disasters,Bin Fu;Ding-Yu Lee,dynamic loading;crack propagation;seismic response;risk assessment,21
+P100,An improved method for thin film in gas sensor scenarios,2020,ASTROPHYSICS AND SPACE SCIENCE,Jinpei Cheng,orbital dynamics;photodetector;MEMS;gas sensor,4
+P101,Fatigue life-based evaluation of dynamic loading,2020,INTERNATIONAL JOURNAL OF FATIGUE,Yongfei Zheng;YanYan Zhao;Jinpei Cheng,fatigue life;risk assessment;composite laminate;finite element analysis,0
+P102,Modeling buckling with applications to composite laminate,2020,INTERNATIONAL JOURNAL OF FATIGUE,Jinpei Cheng;Yongfei Zheng;YanYan Zhao,composite laminate;damage detection;crack propagation;structural health monitoring,24
+P103,Modeling dynamic loading with applications to fatigue life,2020,Composite Structures,Lihong Chen,buckling;nonlinear vibration;structural health monitoring;fatigue life,15
+P104,Modeling earthquake hazard with applications to finite element analysis,2020,Journal of Natural Disasters,Jinpei Cheng;Shu Chien;Yingming Sheng,dynamic loading;fatigue life;seismic response;nonlinear vibration,15
+P105,Modeling nonlinear vibration with applications to earthquake hazard,2020,Journal of Natural Disasters,Xiachen Zhi;Bin Fu,buckling;dynamic loading;structural health monitoring;risk assessment,14
+P106,Modeling porous media with applications to energy efficiency,2020,THERMAL SCIENCE,Lifei Zhang;Xiachen Zhi,energy efficiency;coal gasification;thermal analysis;biomass fuel,19
+P107,Numerical simulation of thermodynamic cycle considering combustion,2020,THERMAL SCIENCE,Jinpei Cheng;Yingming Sheng,energy efficiency;combustion;corrosion resistance;pyrolysis,12
+P108,On the relationship between corrosion resistance and porous media,2020,International Corrosion Conference Series,Jinpei Cheng,thermodynamic cycle;pyrolysis;combustion;coal gasification,10
