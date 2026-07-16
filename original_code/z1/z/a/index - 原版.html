@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+	text {
+		font-size: 12px;
+	}
+
+	.mainBars rect {
+		shape-rendering: auto;
+		fill-opacity: 0;
+		stroke-width: 0.5px;
+		stroke: rgb(0, 0, 0);
+		stroke-opacity: 0;
+	}
+
+	.subBars {
+		shape-rendering: crispEdges;
+	}
+
+	.edges {
+		stroke: none;
+		fill-opacity: 0.5;
+	}
+
+	.header {
+		text-anchor: middle;
+		font-size: 16px;
+	}
+
+	line {
+		stroke: grey;
+	}
+</style>
+
+<body>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
+	<script>
+
+		var data = [//['Teacher-N','分析化学',16,0],
+			['Teacher-O', '分析化学', 1278, 4],
+			['Teacher-P', '分析化学', 27, 0],
+			['Teacher-Q', '分析化学', 58, 0],
+			['Teacher-R', '分析化学', 1551, 15],
+			['Teacher-S', '分析化学', 141, 0],
+			//['Teacher-N','物理化学学报',5453,35],
+			['Teacher-O', '物理化学学报', 683, 1],
+			['Teacher-P', '物理化学学报', 862, 0],
+			['Teacher-R', '物理化学学报', 6228, 30],
+			//['Teacher-N','无机材料学报',15001,449],
+			['Teacher-O', '无机材料学报', 527, 3],
+			['Teacher-P', '无机材料学报', 836, 0],
+			['Teacher-Q', '无机材料学报', 28648, 1419],
+			['Teacher-R', '无机材料学报', 3, 0],
+			//['Teacher-N','催化学报',13,0],
+			['Teacher-O', '催化学报', 396, 0],
+			['Teacher-P', '催化学报', 362, 0],
+			['Teacher-Q', '催化学报', 78, 10],
+			['Teacher-R', '催化学报', 2473, 32],
+			['Teacher-S', '催化学报', 2063, 64],
+			['Teacher-P', 'Applied Surface Science', 203, 0],
+			['Teacher-R', 'Applied Surface Science', 686, 2],
+			['Teacher-S', 'Applied Surface Science', 826, 0],
+			//['Teacher-N','Chinese Journal of Analytical Chemistry',1738,110],
+			['Teacher-O', 'Chinese Journal of Analytical Chemistry', 12925, 13],
+			['Teacher-P', 'Chinese Journal of Analytical Chemistry', 15413, 0],
+			['Teacher-O', 'Applied Thermal Engineering', 2166, 2],
+			['Teacher-P', 'Applied Thermal Engineering', 86, 0],
+			['Teacher-Q', 'Applied Thermal Engineering', 348, 3],
+			['Teacher-R', 'Applied Thermal Engineering', 4244, 18],
+			['Teacher-S', 'Applied Thermal Engineering', 1536, 1],
+			['Teacher-O', 'Catalysis Today', 351, 0],
+			['Teacher-R', 'Catalysis Today', 405, 1],
+			['Teacher-O', 'Heat Transfer Engineering', 914, 1],
+			['Teacher-P', 'Heat Transfer Engineering', 127, 0],
+			['Teacher-R', 'Heat Transfer Engineering', 1470, 7],
+			['Teacher-S', 'Heat Transfer Engineering', 516, 1],
+			// ['Teacher-N','Journal of Bioscience and Bioengineering',43,0],
+			// ['Teacher-O','Journal of Bioscience and Bioengineering',667,1],
+			// ['Teacher-P','Journal of Bioscience and Bioengineering',172,0],
+			// ['Teacher-Q','Journal of Bioscience and Bioengineering',149,1],
+			// ['Teacher-R','Journal of Bioscience and Bioengineering',1380,5],
+			// ['Teacher-S','Journal of Bioscience and Bioengineering',791,23],
+			// ['Teacher-O','International Journal of Hydrogen Energy',1,0],
+			// ['Teacher-R','International Journal of Hydrogen Energy',1,0],
+			// ['Teacher-O','Chemical Engineering Journal',1070,1],
+			// ['Teacher-R','Chemical Engineering Journal',1171,2],
+			// ['Teacher-S','Chemical Engineering Journal',33,0],
+			// ['Teacher-Q','AIChE Journal',1,0],
+			// ['Teacher-O','ChemCatChem',407,0],
+			// ['Teacher-P','ChemCatChem',3,0],
+			// ['Teacher-R','ChemCatChem',457,2],
+			// ['Teacher-S','ChemCatChem',20,0],
+			// ['Teacher-O','Journal of Environmental Sciences (China)',557,0],
+			// ['Teacher-P','Journal of Environmental Sciences (China)',167,0],
+			// ['Teacher-Q','Journal of Environmental Sciences (China)',95,1],
+			// ['Teacher-R','Journal of Environmental Sciences (China)',1090,5],
+			// ['Teacher-S','Journal of Environmental Sciences (China)',676,6],
+			// ['Teacher-N','Journal of Thermal Analysis and Calorimetry',1195,99],
+			// ['Teacher-O','Journal of Thermal Analysis and Calorimetry',350,3],
+			// ['Teacher-P','Journal of Thermal Analysis and Calorimetry',212,0],
+			// ['Teacher-R','Journal of Thermal Analysis and Calorimetry',1509,8],
+			// ['Teacher-N','Crystal Growth and Design',3899,389],
+			// ['Teacher-O','Crystal Growth and Design',147,0],
+			// ['Teacher-P','Crystal Growth and Design',455,0],
+			// ['Teacher-Q','Crystal Growth and Design',1,1],
+			// ['Teacher-R','Crystal Growth and Design',4100,16],
+			// ['Teacher-N','AIChE Journal',12,0],
+			// ['Teacher-O','AIChE Journal',634,2],
+			// ['Teacher-P','AIChE Journal',749,0],
+			// ['Teacher-Q','AIChE Journal',119,1],
+			// ['Teacher-R','AIChE Journal',3705,19],
+			// ['Teacher-S','AIChE Journal',3456,25],
+			// ['Teacher-O','Molecular Physics',828,2],
+			// ['Teacher-P','Molecular Physics',288,0],
+			// ['Teacher-Q','Molecular Physics',141,0],
+			// ['Teacher-R','Molecular Physics',2625,7],
+			// ['Teacher-S','Molecular Physics',1920,10],
+			// ['Teacher-O','International Journal of Energy Research',1146,2],
+			// ['Teacher-P','International Journal of Energy Research',212,0],
+			// ['Teacher-Q','International Journal of Energy Research',223,4],
+			// ['Teacher-R','International Journal of Energy Research',1803,6],
+			// ['Teacher-S','International Journal of Energy Research',761,8],
+			// ['Teacher-O','Water Environment Research',527,0],
+			// ['Teacher-P','Water Environment Research',90,0],
+			// ['Teacher-R','Water Environment Research',930,4],
+			// ['Teacher-S','Water Environment Research',395,1],
+			// ['Teacher-N','Atmospheric Environment',7232,58],
+			// ['Teacher-O','Atmospheric Environment',1272,0],
+			// ['Teacher-P','Atmospheric Environment',1896,0],
+			// ['Teacher-Q','Atmospheric Environment',1,0],
+			// ['Teacher-R','Atmospheric Environment',10782,33],
+			// ['Teacher-S','Atmospheric Environment',1911,3],
+			// ['Teacher-O','Thermal Science',495,0],
+			// ['Teacher-P','Thermal Science',32,0],
+			// ['Teacher-Q','Thermal Science',7,0],
+			// ['Teacher-R','Thermal Science',1557,12],
+			// ['Teacher-S','Thermal Science',24,0],
+			// ['Teacher-O','Fresenius Environmental Bulletin',460,1],
+			// ['Teacher-Q','Fresenius Environmental Bulletin',88,3],
+			// ['Teacher-R','Fresenius Environmental Bulletin',956,3],
+			// ['Teacher-O','稀有金属材料与工程',232,0],
+			// ['Teacher-P','稀有金属材料与工程',71,0],
+			// ['Teacher-R','稀有金属材料与工程',575,2],
+			// ['Teacher-S','稀有金属材料与工程',368,3]
+		];
+		var color = {
+			Teacher-S: "#3366CC", Teacher-R: "#DC3912", Teacher-N: "#FF9900", Teacher-P: "#109618", Teacher-Q: "#990099", Teacher-O: "#0099C6",
+			Teacher-T: "#3366CC", Teacher-U: "#DC3912", Teacher-V: "#FF9900", Teacher-W: "#109618", Teacher-X: "#990099", Teacher-Y: "#0099C6"
+		};
+		var svg = d3.select("body").append("svg").attr("width", 860).attr("height", 800);
+
+		svg.append("text").attr("x", 250).attr("y", 70)
+			.attr("class", "header").text("团队A");
+
+		svg.append("text").attr("x", 750).attr("y", 70)
+			.attr("class", "header").text("团队B");
+
+		var g = [svg.append("g").attr("transform", "translate(150,100)")
+			, svg.append("g").attr("transform", "translate(650,100)")];
+
+		var bp = [viz.bP()
+			.data(data)
+			.min(12)
+			.pad(1)
+			.height(600)
+			.width(200)
+			.barSize(35)
+			.fill(d => color[d.primary])
+			, viz.bP()
+				.data(data)
+				.value(d => d[3])
+				.min(12)
+				.pad(1)
+				.height(600)
+				.width(200)
+				.barSize(35)
+				.fill(d => color[d.primary])
+		];
+
+		[0, 1].forEach(function (i) {
+			g[i].call(bp[i])
+
+			g[i].append("text").attr("x", -50).attr("y", -8).style("text-anchor", "middle").text("人名");
+			g[i].append("text").attr("x", 250).attr("y", -8).style("text-anchor", "middle").text("期刊名");
+
+			g[i].append("line").attr("x1", -100).attr("x2", 0);
+			g[i].append("line").attr("x1", 200).attr("x2", 300);
+
+			g[i].append("line").attr("y1", 610).attr("y2", 610).attr("x1", -100).attr("x2", 0);
+			g[i].append("line").attr("y1", 610).attr("y2", 610).attr("x1", 200).attr("x2", 300);
+
+			g[i].selectAll(".mainBars")
+				.on("mouseover", mouseover)
+				.on("mouseout", mouseout);
+
+			g[i].selectAll(".mainBars").append("text").attr("class", "label")
+				.attr("x", d => (d.part == "primary" ? -30 : 30))
+				.attr("y", d => +6)
+				.text(d => d.key)
+				.attr("text-anchor", d => (d.part == "primary" ? "end" : "start"));
+
+			g[i].selectAll(".mainBars").append("text").attr("class", "perc")
+				.attr("x", d => (d.part == "primary" ? -100 : 80))
+				.attr("y", d => +6)
+				.text(function (d) { return d3.format("  0.0%")(d.percent) })
+				.attr("text-anchor", d => (d.part == "primary" ? "end" : "start"));
+		});
+
+		function mouseover(d) {
+			[0, 1].forEach(function (i) {
+				bp[i].mouseover(d);
+
+				g[i].selectAll(".mainBars").select(".perc")
+					.text(function (d) { return d3.format("  0.0%")(d.percent) });
+			});
+		}
+		function mouseout(d) {
+			[0, 1].forEach(function (i) {
+				bp[i].mouseout(d);
+
+				g[i].selectAll(".mainBars").select(".perc")
+					.text(function (d) { return d3.format("  0.0%")(d.percent) });
+			});
+		}
+		d3.select(self.frameElement).style("height", "800px");
+	</script>
+</body>
+
+</html>

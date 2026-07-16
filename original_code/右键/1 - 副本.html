@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+#TextBox{
+width: 200px;
+height: 200px;
+border: 1px solid #000;
+}
+#menu{
+position: absolute;
+border: 1px solid #000;
+}
+#menu > div:nth-child(2){
+border-top: 1px solid #000;
+}
+#menu > div:nth-child(3){
+border-top: 1px solid #000;
+}
+#menu > div:nth-child(4){
+border-top: 1px solid #000;
+}
+#menu > div:hover{
+cursor: pointer;
+background-color: #0078E7;
+}
+</style>
+</head>
+<body>
+<div id="TextBox">
+<div id="menu">
+<div>自定义菜单</div>
+<div><a href="http://www.baidu.com" title="22">11</a></div>
+<div>2</div>
+<div>3</div>
+</div>
+</div>
+<script type="text/javascript">
+window.onload = function(){
+var ul = document.getElementById("menu"); //获取ul节点对象
+ul.style.display = "none";
+/*为document绑定鼠标右键菜单事件*/
+document.oncontextmenu = function(e){
+var _event = window.event||e; //事件对象
+var x = _event.clientX; // 鼠标的x坐标
+var y = _event.clientY; //鼠标的y坐标
+ul.style.display = "block";
+ul.style.left = x + "px"; //改变ul的坐标
+ul.style.top = y + "px";
+//阻止默认行为
+if(_event.preventDefault){
+_event.preventDefault(); //标准格式
+}else{
+_event.returnValue = false; //IE格式
+}
+}
+document.onclick = function(){
+ul.style.display = "none";
+}
+}
+</script>
+</body>
+</html>

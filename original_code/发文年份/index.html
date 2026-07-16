@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="demo"></div>
+</body>
+<script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script>
+<!-- Styles -->
+<style>
+  #chartdiv {
+    width: 100%;
+    height: 1000px;
+  }
+  
+  </style>
+  
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+  
+  <!-- Chart code -->
+  <script>
+  am4core.ready(function() {
+  
+  // Themes begin
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+    // Create chart instance
+    var container = am4core.create("chartdiv", am4core.Container);
+    container.layout = "grid";
+    container.fixedWidthGrid = false;
+    container.width = am4core.percent(50);
+    container.height = am4core.percent(100);
+  
+    // Color set
+    var colors = new am4core.ColorSet();
+  
+
+  
+    function createColumn(title, data, color) {
+  
+      var chart = container.createChild(am4charts.XYChart);
+      chart.width = am4core.percent(70);
+      chart.height = 70;
+  
+      chart.data = data;
+  
+      chart.titles.template.fontSize = 15;
+      chart.titles.template.textAlign = "left";
+      chart.titles.template.isMeasured = false;
+      chart.titles.create().text = title;
+  
+      chart.padding(20, 115, 2, 115);
+  
+      var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+      dateAxis.renderer.grid.template.disabled = true;
+      dateAxis.renderer.labels.template.disabled = true;
+      dateAxis.cursorTooltipEnabled = false;
+  
+      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+      valueAxis.min = 0;
+      valueAxis.renderer.grid.template.disabled = true;
+      valueAxis.renderer.baseGrid.disabled = true;
+      valueAxis.renderer.labels.template.disabled = true;
+      valueAxis.cursorTooltipEnabled = false;
+  
+      chart.cursor = new am4charts.XYCursor();
+      chart.cursor.lineY.disabled = true;
+  
+      var series = chart.series.push(new am4charts.ColumnSeries());
+      series.tooltipText = "年份{date}， 发文数[bold]{value}";
+      series.dataFields.dateX = "date";
+      series.dataFields.valueY = "value";
+      series.strokeWidth = 0;
+      series.fillOpacity = 0.5;
+      series.columns.template.propertyFields.fillOpacity = "opacity";
+      series.columns.template.fill = color;
+  
+      return chart;
+    }
+  
+
+  
+    createColumn("Teacher-A:1001", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+    ], colors.getIndex(0));
+  
+  
+    createColumn("Teacher-B:1002", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 3 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 1 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 1 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 1 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 5 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 1 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 2, "opacity": 1 }
+     ], colors.getIndex(1));
+  
+  
+    createColumn("Teacher-C:1003", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(2));
+  
+
+  
+    createColumn("Teacher-D:1004", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(3));
+  
+
+     createColumn("Teacher-E:1005", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(4));
+  
+
+     createColumn("Teacher-F:1006", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(5));
+  
+
+     createColumn("Teacher-G:1007", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(6));
+  
+
+     createColumn("Teacher-H:1008", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(7));
+  
+
+     createColumn("Teacher-I:1009", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(8));
+  
+  
+    createColumn("Teacher-J:1010", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 1 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 1 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 1 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 3 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 1 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 1 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 1, "opacity": 1 }
+     ], colors.getIndex(9));
+
+     createColumn("Teacher-K:1011", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 2 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 1 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 1 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 1 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 1 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 1 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 1, "opacity": 1 }
+     ], colors.getIndex(10));
+     
+     createColumn("Teacher-L:1012", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 1 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 5 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 1 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 1 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 1 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 1 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 1, "opacity": 1 }
+     ], colors.getIndex(11));
+     
+     createColumn("Teacher-M:1013", [
+      { "date": new Date(2013, 0, 1, 13, 0, 0), "value": 22 }, 
+      { "date": new Date(2014, 0, 1, 14, 0, 0), "value": 25 }, 
+      { "date": new Date(2015, 0, 1, 15, 0, 0), "value": 40 }, 
+      { "date": new Date(2016, 0, 1, 16, 0, 0), "value": 35 }, 
+      { "date": new Date(2017, 0, 1, 17, 0, 0), "value": 29 }, 
+      { "date": new Date(2018, 0, 1, 18, 0, 0), "value": 22 }, 
+      { "date": new Date(2019, 0, 1, 19, 0, 0), "value": 33, "opacity": 1 }
+     ], colors.getIndex(12));
+         
+
+
+
+  }); // end am4core.ready()
+  </script>
+  
+  <!-- HTML -->
+  <div id="chartdiv"></div>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  html,body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #demo {
+    width: 100%;
+    height: 98% ;
+  }
+</style>
+<body>
+  <div id="demo"></div>
+  
+</body>
+<script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script> 
+<script>
+  chart = new NetChart({
+    navigation: {
+      focusNodeExpansionRadius: 2,
+      initialNodes: [
+        "m-1"
+      ],
+      mode: "focusnodes"
+    },
+    style: {
+      node: {
+        display: "image",
+        lineWidth: 2,
+        lineColor: "#2fc32f",
+        imageCropping: true
+      },
+      "nodeStyleFunction": function (node) {
+        node.aura = node.data.auras;
+        node.image = "./pic/" + node.id + ".png";  //"https://zoomcharts.com/dvsl/data/net-chart/friend-net/" + node.id + ".png"
+        node.label = node.data.name;
+      }
+    },
+    auras: {
+      cellSize: 10,
+      overlap: true,
+      enabled: true,
+      defaultStyle: {
+        showInLegend: true,
+        shadowBlur: 35
+      }
+    },
+    container: "demo",
+    data: [{
+      url: "data.json"
+    }],
+    toolbar: {
+      fullscreen: true,
+      enabled: true
+    },
+    interaction: {
+      resizing: {
+        enabled: false
+      }
+    }
+  })
+</script>
+
+</html>

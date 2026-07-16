@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  html,
+  body {
+    margin: 0px;
+    padding: 0px;
+    width:100%;
+    height: 100%;
+  }
+
+  #demo {
+    width: 100%;
+    height: 98%;
+  }
+
+  #text {
+    position: absolute;
+    top: 80px;
+    right: 70px;
+    z-index: 5;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Times New Roman', serif;
+  }
+
+  /* #tuli {
+    position: absolute;
+    left: 40px;
+    bottom: 250px;
+    width: 200px;
+    background-color: white;
+  } */
+
+  .small-tuli {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .small-tuli img {
+    margin-right: 10px;
+  }
+
+</style>
+
+<body>
+  <div id="text"></div>
+  <div id="demo"></div>
+
+  <div id="tuli">
+
+  </div>
+</body>
+<script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // let listarr = [{ name: '数据挖掘', src: './tuli/1.png' }, { name: '数据库', src: './tuli/2.png' }]
+  // for (let i of listarr) {
+  //   $('#tuli').append(`<div class="small-tuli"><img src="` + i.src + `" alt="图例" style="width:30px;height:30px">` + i.name + `</div>`)
+  // }
+  var namearr = []
+  var linearr = []
+  var linetext = []
+  var pieChartSettings = null;
+  var pieChartData = null;
+  var activeNode = null;
+  var pieChartNode = null;
+  var activeSlice = null;
+  chart = new NetChart({
+    navigation: {
+      focusNodeExpansionRadius: 2,
+      initialNodes: [
+        "m-1"
+      ],
+      mode: "focusnodes"
+    },
+    style: {
+      node: {
+        display: "image",
+        lineWidth: 6,
+        lineColor: "#2fc32f",
+        imageCropping: true
+      },
+
+      nodeLabel: {
+        padding: 1,
+        // borderRadius: 2,
+        textStyle: {
+          font: "20px Times New Roman",
+          fillColor: "white"
+        },
+        backgroundStyle: {
+          fillColor: "rgba(0,153,204,0.8)"
+        }
+      },
+      nodeStyleFunction: nodeHighlight,
+      linkStyleFunction: linkHighlight,
+      // "nodeStyleFunction": function (node) {
+      //   node.aura = node.data.auras;
+      //   node.image = "./pic/" + node.id + ".png";  //"https://zoomcharts.com/dvsl/data/net-chart/friend-net/" + node.id + ".png"
+      //   node.label = node.data.name;
+      // }
+    },
+    auras: {
+      cellSize: 10,
+      overlap: true,
+      enabled: true,
+      defaultStyle: {
+        showInLegend: true,
+        shadowBlur: 35
+      }
+    },
+    container: "demo",
+    data: [{
+      url: "data.json"
+    }],
+    toolbar: {
+      fullscreen: true,
+      enabled: true
+    },
+
+    nodeMenu: {
+      enabled: true,
+      showData: true,
+    },
+    interaction: {
+      resizing: {
+        enabled: false
+      }
+    },
+    events: {
+      onClick: onlyclick,
+      onDoubleClick: doubleclick,
+      onPositionChange: movePieChart
+    }
+  })
+
+  function retpie(data) {
+    var pieChart = new PieChart({
+      parentChart: chart,
+      // data: [{
+      //   url: "pie.json"
+      // }],
+      data: {
+        preloaded: {
+          subvalues: data
+        }
+      },
+      labels: {
+        enabled: false
+      },
+      icons: {
+        sizeExtent: [-1, -1]
+      },
+      pie: {
+        adaptiveRadius: false,
+        styleFunction: function (pie) {
+          if (pie.parentSlice) {
+            pie.sliceColors = [pie.parentSlice.fillColor];
+            pie.colorDistribution = "gradient";
+          }
+        }
+      },
+      slice: {
+        backgroundStyle: {
+          fillColor: "rgba(0xe2, 0xe2, 0xe2, 0.6)",
+          fillColor2: "rgba(0xe0, 0xe0, 0xe0, 0.6)"
+        },
+        connectorStyle: { lineColor: "#aaa" },
+        style: {
+          label: {
+            textStyle: { font: "14px arial" },
+            backgroundStyle: { fillColor: "rgba(220,220,220,0.6)" }
+          }
+        }
+      },
+      interaction: {
+        resizing: {
+          enabled: false
+        },
+        others: {
+          minSliceFraction: 0.03
+        }
+      },
+      // events: {
+      //   onSelectionChange: pieChartSelection
+      // }
+    });
+    return pieChart
+  }
+  var pieChart
+  // $.getJSON("./pie.json", function (data) {
+  //   pieChart = retpie(data['f-1'])
+  // });
+
+  // $.get("./pie.json", function (data) {
+  //   console.log(data)
+  // });
+  var piedata
+  $.getJSON("./pie.json", function (data) {
+    piedata = data
+  });
+  // 双击功能
+  function doubleclick(e, args) {
+    var selectedNodes = chart.selection();
+    if (selectedNodes.length != 0) {
+
+      console.log('data', piedata[args.clickNode.id])
+      pieChart = retpie(piedata[args.clickNode.id])
+      var currentNode = selectedNodes[0];
+      console.log(currentNode)
+      // if (currentNode.focused && pieChartSettings != null && currentNode == activeNode) {
+      var settings = getPieChartDimensions(currentNode);
+      console.log(settings)
+      var currentArea = settings.area;
+      pieChartData = currentNode.data;
+      // if (pieChartSettings
+      //   && pieChartSettings.area.left === currentArea.left
+      //   && pieChartSettings.area.top === currentArea.top
+      //   && pieChartSettings.pie.radius === settings.pie.radius) {
+      //   return;
+      // }
+      pieChartNode = currentNode;
+      pieChartSettings = settings;
+      pieChartSettings.data = { preloaded: { subvalues: pieChartData } };
+      pieChartSettings.navigation = {}; // required so that PieChart drilldown level is reset.
+      // pieChart.updateSettings(settings);
+      activeNode = currentNode;
+      // pieChartData = getPieData(currentNode.data);
+      // pieChartNode = currentNode;
+      // pieChartSettings = getPieChartDimensions(currentNode);
+      // pieChartSettings.data = { preloaded: { subvalues: pieChartData } };
+      // pieChartSettings.navigation = {}; // required so that PieChart drilldown level is reset.
+      // pieChart.updateSettings(pieChartSettings);
+      // activeNode = currentNode;
+      // } else {
+      //   // hidePieChart();
+      //   console.log('no')
+      // }
+    }
+  }
+
+  // 单击功能能
+  function onlyclick(e, args) {
+    // chart.addFocusNode(args.clickNode)
+    if (e.clickLink) {
+      let text = ' "' + e.clickLink.data.from + '\t"  and  "' + e.clickLink.data.to + '" '
+      if (linearr.indexOf(e.clickLink.id) < 0) {
+        linearr.push(e.clickLink.id)
+        linetext.push(text)
+      } else {
+        linearr.splice(linearr.indexOf(e.clickLink.id), 1)
+        linetext.splice(linetext.indexOf(text), 1)
+      }
+      // console.log(document.getElementById('text'))
+      // let text = '点击了一根线from:' + e.clickLink.data.from + '\tto:' + e.clickLink.data.to
+      console.log(linearr, linetext)
+      let t = ""
+      for (let i of linetext) {
+        t += i + '\n'
+      }
+      document.getElementById('text').innerText = t
+      // console.log('点击了一根线from:' + e.clickLink.data.from + '\tto:' + e.clickLink.data.to)
+    }
+    if (args.clickNode) {
+      // console.log(args.clickNode.data.name)
+      parent.getname(args.clickNode.data.name)
+      if (namearr.indexOf(args.clickNode.id) < 0) {
+        namearr.push(args.clickNode.id)
+      } else {
+        namearr.splice(namearr.indexOf(args.clickNode.id), 1)
+      }
+      console.log(namearr)
+      chart.selection(namearr)
+    }
+  }
+
+
+  // 节点高亮
+  function nodeHighlight(node) {
+    if (namearr.indexOf(node.id) >= 0) {
+      node.radius = 35;
+      node.lineColor = "#f00"
+      node.lineWidth = 10
+    } else {
+      node.radius = 30
+      node.lineWidth = 4
+      node.lineColor = "#696969"
+    }
+    node.aura = node.data.auras;
+    node.image = "./pic/" + node.id + ".png";  //"https://zoomcharts.com/dvsl/data/net-chart/friend-net/" + node.id + ".png"
+    node.label = node.data.name;
+
+    node.fillColor = '#09c';
+    // node.label = node.data.name;
+  }
+  // 连线高亮
+  function linkHighlight(node) {
+    // console.log(node.id)
+    node.radius = 2
+    if (linearr.indexOf(node.id) >= 0) {
+      node.fillColor = "#f00"
+      node.radius = 6
+    } else {
+      node.fillColor = "#A9A9A9"
+    }
+  }
+
+  // 功能性函数
+  function getPieChartDimensions(node) {
+    var dimensions = chart.getNodeDimensions(node);
+    var output = {
+      area: {
+        left: dimensions.x - dimensions.radius * 5,
+        top: dimensions.y - dimensions.radius * 5,
+        width: dimensions.radius * 10,
+        height: dimensions.radius * 10
+      },
+      pie: {
+        radius: dimensions.radius + (dimensions.radius / 2),
+        innerRadius: dimensions.radius
+      }
+    };
+    return output;
+  }
+
+  // 位置变更
+  function movePieChart() {
+    var selectedNodes = chart.selection();
+    if (selectedNodes.length === 0) {
+      return;
+    }
+    var currentNode = selectedNodes[0];
+    if (currentNode.focused && pieChartSettings != null && currentNode == activeNode) {
+      var settings = getPieChartDimensions(currentNode);
+      var currentArea = settings.area;
+      if (pieChartSettings
+        && pieChartSettings.area.left === currentArea.left
+        && pieChartSettings.area.top === currentArea.top
+        && pieChartSettings.pie.radius === settings.pie.radius) {
+        return;
+      }
+      pieChartSettings = settings;
+      // pieChart.updateSettings(settings);
+    } else {
+      hidePieChart();
+    }
+  }
+  // 不知道干什么但是有用的函数
+  function hidePieChart() {
+    // pieChart.updateSettings({ area: { left: -100, top: -100, width: 0, height: 0 } });
+    pieChartSettings = null;
+    pieChartNode = null;
+    activeSlice = null;
+  }
+</script>
+
+</html>

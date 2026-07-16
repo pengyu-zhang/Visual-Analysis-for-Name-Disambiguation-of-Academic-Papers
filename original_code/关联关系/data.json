@@ -1,0 +1,396 @@
+{
+  "nodes": [{
+      "id": "m-1",
+      "age": 20,
+      "name": "1001",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-2",
+      "age": 15,
+      "name": "1002",
+      "loaded": true,
+      "auras": ["HR"]
+    },
+    {
+      "id": "m-3",
+      "age": 16,
+      "name": "1003",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-4",
+      "age": 35,
+      "name": "1004",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-7",
+      "age": 37,
+      "name": "1005",
+      "loaded": true,
+      "auras": ["HR"]
+    },
+    {
+      "id": "m-8",
+      "age": 60,
+      "name": "1006",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-9",
+      "age": 63,
+      "name": "1007",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-10",
+      "age": 17,
+      "name": "1008",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-11",
+      "age": 21,
+      "name": "1009",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-12",
+      "age": 26,
+      "name": "1010",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+    {
+      "id": "m-13",
+      "age": 29,
+      "name": "1011",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+
+    {
+      "id": "f-1",
+      "age": 28,
+      "name": "1012",
+      "loaded": true,
+      "auras": ["Administration"]
+    },
+    {
+      "id": "f-2",
+      "age": 21,
+      "name": "1013",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "q-2",
+      "age": 21,
+      "name": "111111",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "x-1",
+      "age": 21,
+      "name": "lli",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "x-2",
+      "age": 21,
+      "name": "zhao",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+    {
+      "id": "x-3",
+      "age": 21,
+      "name": "sun",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "x-4",
+      "age": 21,
+      "name": "li",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+    {
+      "id": "x-5",
+      "age": 21,
+      "name": "wang",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "x-6",
+      "age": 21,
+      "name": "zhang",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "x-7",
+      "age": 21,
+      "name": "hu",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+    {
+      "id": "x-8",
+      "age": 21,
+      "name": "he",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "x-9",
+      "age": 21,
+      "name": "xin",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+    {
+      "id": "x-10",
+      "age": 21,
+      "name": "xi",
+      "loaded": true,
+      "auras": ["Sales"]
+    }
+  ],
+
+  "links": [{
+      "id": "l01",
+      "from": "m-1",
+      "to": "m-2",
+      "type": "friend"
+    },
+    {
+      "id": "l02",
+      "from": "m-1",
+      "to": "m-3",
+      "type": "friend"
+    },
+    {
+      "id": "l03",
+      "from": "m-1",
+      "to": "m-4",
+      "type": "friend"
+    },
+    {
+      "id": "l04",
+      "from": "m-1",
+      "to": "m-7",
+      "type": "friend"
+    },
+    {
+      "id": "l07",
+      "from": "m-1",
+      "to": "m-8",
+      "type": "collegue"
+    },
+    {
+      "id": "l15",
+      "from": "m-1",
+      "to": "m-9",
+      "type": "friend"
+    },
+    {
+      "id": "l23",
+      "from": "m-1",
+      "to": "m-10",
+      "type": "collegue"
+    },
+    {
+      "id": "l28",
+      "from": "m-1",
+      "to": "m-11",
+      "type": "friend"
+    },
+    {
+      "id": "l29",
+      "from": "m-1",
+      "to": "m-12",
+      "type": "friend"
+    },
+    {
+      "id": "l30",
+      "from": "m-1",
+      "to": "m-13",
+      "type": "friend"
+    },
+    {
+      "id": "l31",
+      "from": "m-1",
+      "to": "f-1",
+      "type": "friend"
+    },
+    {
+      "id": "l32",
+      "from": "m-1",
+      "to": "f-2",
+      "type": "friend"
+    },
+    {
+      "id": "l33",
+      "from": "m-10",
+      "to": "m-11",
+      "type": "friend"
+    },
+    {
+      "id": "l34",
+      "from": "m-11",
+      "to": "m-12",
+      "type": "friend"
+    },
+    {
+      "id": "l35",
+      "from": "m-12",
+      "to": "m-13",
+      "type": "friend"
+    },
+    {
+      "id": "l36",
+      "from": "m-12",
+      "to": "f-1",
+      "type": "friend"
+    },
+    {
+      "id": "l37",
+      "from": "m-12",
+      "to": "f-2",
+      "type": "friend"
+    },
+    {
+      "id": "l38",
+      "from": "m-12",
+      "to": "m-4",
+      "type": "friend"
+    },
+    {
+      "id": "l39",
+      "from": "m-12",
+      "to": "m-7",
+      "type": "friend"
+    },
+    {
+      "id": "l40",
+      "from": "m-13",
+      "to": "m-4",
+      "type": "friend"
+    },
+    {
+      "id": "l41",
+      "from": "m-13",
+      "to": "m-8",
+      "type": "friend"
+    },
+    {
+      "id": "l42",
+      "from": "m-13",
+      "to": "m-11",
+      "type": "friend"
+    },
+    {
+      "id": "l43",
+      "from": "f-1",
+      "to": "m-4",
+      "type": "friend"
+    },
+    {
+      "id": "l44",
+      "from": "f-1",
+      "to": "m-8",
+      "type": "friend"
+    },
+    {
+      "id": "l45",
+      "from": "f-1",
+      "to": "m-10",
+      "type": "friend"
+    },
+    {
+      "id": "l46",
+      "from": "m-7",
+      "to": "m-9",
+      "type": "collegue"
+    },
+    {
+      "id": "l47",
+      "from": "f-2",
+      "to": "m-4",
+      "type": "collegue"
+    },
+    {
+      "id": "l48",
+      "from": "f-2",
+      "to": "x-1",
+      "type": "collegue"
+    },
+    {
+      "id": "l49",
+      "from": "x-1",
+      "to": "x-2",
+      "type": "collegue"
+    },
+    {
+      "id": "l50",
+      "from": "x-1",
+      "to": "x-3",
+      "type": "collegue"
+    },
+    {
+      "id": "l51",
+      "from": "x-1",
+      "to": "x-4",
+      "type": "collegue"
+    },
+    {
+      "id": "l52",
+      "from": "x-1",
+      "to": "x-5",
+      "type": "collegue"
+    },
+    {
+      "id": "l53",
+      "from": "x-1",
+      "to": "x-6",
+      "type": "collegue"
+    },
+    {
+      "id": "l54",
+      "from": "x-1",
+      "to": "x-7",
+      "type": "collegue"
+    },
+    {
+      "id": "l55",
+      "from": "x-1",
+      "to": "x-8",
+      "type": "collegue"
+    },
+    {
+      "id": "l56",
+      "from": "x-1",
+      "to": "x-9",
+      "type": "collegue"
+    },
+    {
+      "id": "l57",
+      "from": "x-1",
+      "to": "x-10",
+      "type": "collegue"
+    }
+  ]
+}

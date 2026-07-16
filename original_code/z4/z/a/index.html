@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="../style/style.css">
+<meta charset="utf-8">
+<style>
+	text {
+		font-size: 18px;
+	}
+
+	.mainBars rect {
+		shape-rendering: auto;
+		fill-opacity: 0;
+		stroke-width: 0.5px;
+		stroke: rgb(0, 0, 0);
+		stroke-opacity: 0;
+	}
+
+	.subBars {
+		shape-rendering: crispEdges;
+	}
+
+	.edges {
+		stroke: none;
+		fill-opacity: 0.5;
+	}
+
+	.header {
+		text-anchor: middle;
+		font-size: 16px;
+	}
+
+	line {
+		stroke: grey;
+	}
+</style>
+
+<body>
+	<!-- <button onclick="setname('1001')"></button> -->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
+	<script src="jquery.js"></script>
+	<script>
+		var data = [
+			['Jinpei Cheng', 'MATEC Web of Conferences', 1, 1],
+			['Jinpei Cheng', 'International Journal of Electrochemical Science', 1, 1],
+			['Jinpei Cheng', 'Materials Science Forum', 1, 1],
+			['Jinpei Cheng', 'International Congress on Sound and Vibration', 1, 1],
+			['Jinpei Cheng', 'Proceedings of Meetings on Acoustics', 1, 1],
+			['Jinpei Cheng', 'Fuel', 1, 1],
+			['Jinpei Cheng', 'International Corrosion Conference Series', 1, 1],
+			['Jinpei Cheng', 'THERMAL SCIENCE', 2, 1],
+			['Jinpei Cheng', 'ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING', 1, 1],
+			['Jinpei Cheng', 'INTERNATIONAL JOURNAL OF FATIGUE', 2, 1],
+			['Jinpei Cheng', 'ASTROPHYSICS AND SPACE SCIENCE', 1, 1],
+			['Jinpei Cheng', 'Scientia Sinica', 1, 1],
+			['Jinpei Cheng', 'Journal of Natural Disasters', 1, 1],
+
+			['Ao Yu', 'International Journal of Electrochemical Science', 1, 1],
+
+			['Chen Yang', 'Materials Science Forum', 1, 1],
+			['Chen Yang', 'THERMAL SCIENCE', 1, 1],
+			['Chen Yang', 'Fuel', 1, 1],
+
+			['Xiaosong Xue', 'Proceedings of Meetings on Acoustics', 1, 1],
+			['Xiaosong Xue', 'ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING', 1, 1],
+			['Xiaosong Xue', 'INTERNATIONAL JOURNAL OF FATIGUE', 1, 1],
+
+			['Xin Li', 'International Corrosion Conference Series', 1, 1],
+			['Xin Li', 'THERMAL SCIENCE', 1, 1],
+			['Xin Li', 'Fuel', 1, 1],
+
+			['Shu Chien', 'ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING', 1, 1],
+			['Shu Chien', 'Journal of Natural Disasters', 1, 1],
+
+			['Runsheng Chen', 'ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING', 1, 1],
+			['Runsheng Chen', 'INTERNATIONAL JOURNAL OF FATIGUE', 1, 1],
+
+			['Yongfei Zheng', 'INTERNATIONAL JOURNAL OF FATIGUE', 1, 1],
+			['Yongfei Zheng', 'THERMAL SCIENCE', 1, 1],
+			['Yongfei Zheng', 'Fuel', 1, 1],
+
+			['YanYan Zhao', 'INTERNATIONAL JOURNAL OF FATIGUE', 1, 1],
+			['YanYan Zhao', 'Scientia Sinica', 1, 1],
+
+			['Lifei Zhang', 'THERMAL SCIENCE', 1, 1],
+			['Lifei Zhang', 'Fuel', 1, 1],
+			['Lifei Zhang', 'Journal of Natural Disasters', 1, 1],
+
+			['Ligang Zhou', 'THERMAL SCIENCE', 1, 1],
+			['Ligang Zhou', 'Fuel', 1, 1],
+
+			['Yingming Sheng', 'THERMAL SCIENCE', 1, 1],
+			['Yingming Sheng', 'Journal of Natural Disasters', 1, 1],
+			['Yingming Sheng', 'MATEC Web of Conferences', 1, 1],
+
+			['Xiachen Zhi', 'Journal of Natural Disasters', 1, 1],
+			['Xiachen Zhi', 'THERMAL SCIENCE', 1, 1],
+			['Xiachen Zhi', 'MATEC Web of Conferences', 1, 1],
+
+			['Weidong Sun', 'Journal of Natural Disasters', 1, 1],
+			['Weidong Sun', 'THERMAL SCIENCE', 1, 1],
+			['Weidong Sun', 'MATEC Web of Conferences', 1, 1],
+
+			['Bin Fu', 'MATEC Web of Conferences', 1, 1],
+			['Bin Fu', 'Journal of Natural Disasters', 1, 1],
+			['Bin Fu', 'Proceedings of Meetings on Acoustics', 1, 1],
+
+			['Jochen Hoefs', 'MATEC Web of Conferences', 1, 1],
+			['Jochen Hoefs', 'Journal of Natural Disasters', 1, 1],
+			['Jochen Hoefs', 'Proceedings of Meetings on Acoustics', 1, 1],
+
+			['Shan Gao', 'Composite Structures', 1, 1],
+			['Shan Gao', 'Fuel', 1, 1],
+			['Shan Gao', 'Proceedings of Meetings on Acoustics', 1, 1],
+
+			['Fukun Chen', 'Composite Structures', 1, 1],
+			['Fukun Chen', 'Fuel', 1, 1],
+			['Fukun Chen', 'Proceedings of Meetings on Acoustics', 1, 1],
+
+			['Lihong Chen', 'Journal of Natural Disasters', 1, 1],
+			['Lihong Chen', 'Composite Structures', 1, 1],
+
+			['Zongyao Wen', 'Journal of Natural Disasters', 1, 1],
+			['Zongyao Wen', 'NONLINEAR DYNAMICS', 1, 1],
+
+			['Weibo Ka', 'Journal of Natural Disasters', 1, 1],
+			['Weibo Ka', 'Proceedings of Meetings on Acoustics', 1, 1],
+
+			['Ding-Yu Lee', 'Journal of Natural Disasters', 1, 1],
+			['Ding-Yu Lee', 'NONLINEAR DYNAMICS', 1, 1],
+
+			['Si-Shen Feng', 'Journal of Natural Disasters', 1, 1],
+			['Si-Shen Feng', 'APPLIED SURFACE SCIENCE', 1, 1],
+
+
+			['Ying Wang', 'APPLIED SURFACE SCIENCE', 1, 1],
+			['Ying Wang', 'Proceedings of Meetings on Acoustics', 1, 1],
+
+			['Yan-Ting Shiu', 'APPLIED SURFACE SCIENCE', 1, 1],
+			['Yan-Ting Shiu', 'Proceedings of Meetings on Acoustics', 1, 1],
+
+			['Sung Sik Hur', 'IEEE Sensors Journal', 1, 1],
+			['Sung Sik Hur', 'ASTROPHYSICS AND SPACE SCIENCE', 1, 1],
+
+			['Yuhui Jiang', 'IEEE Sensors Journal', 1, 1],
+			['Yuhui Jiang', 'ASTROPHYSICS AND SPACE SCIENCE', 1, 1],
+
+			['Li-Jing Chen', 'IEEE Sensors Journal', 1, 1],
+			['Li-Jing Chen', 'ASTROPHYSICS AND SPACE SCIENCE', 1, 1],
+		];
+		// for (let i in data) {
+		// 	data[i][1]=(data[i][1].replace(/[^\x00-\xff]/g, "$&\x01").replace(/.{10}\x01?/g, "$&\n").replace(/\x01/g, "")).split('\n')
+		// }
+
+		// console.log(data)
+		var color = {
+			"Jinpei Cheng": "#ADD8E6", "Ao Yu": "#DAA520", 
+			'Chen Yang': "#9ACD32", 'Xiaosong Xue': "#7FFFD4", 
+			'Xin Li': "#20B2AA", 'Shu Chien': "#32CD32", 
+			'Runsheng Chen': "#FFE4C4", 'Yongfei Zheng': "#FA8072", 
+			'YanYan Zhao': "#6A5ACD", 'Lifei Zhang': "#8A2BE2", 
+			'Ligang Zhou': "#A52A2A", 'Yingming Sheng': "#DEB887", 
+			'Xiachen Zhi': "#5F9EA0", 'Weidong Sun': "#FF6347", 
+			'Bin Fu': "#D2691E", 'Jochen Hoefs': "#FF7F50",
+			'Shan Gao': "#6495ED", 'Fukun Chen': "#00FF7F",
+			'Yueheng Yang': "#DC143C", 'Lihong Chen': "#00FFFF",
+			'Zongyao Wen': "#00008B", 'Weibo Ka': "#008B8B",
+			'Ding-Yu Lee': "#B8860B", 'Si-Shen Feng': "#006400",
+			'Ying Wang': "#BDB76B", 'Yan-Ting Shiu': "#FF8C00",
+			'Sung Sik Hur': "#9932CC", 'Yuhui Jiang': "#8B0000",
+			'Li-Jing Chen': "#E9967A"
+		};
+		var svg = d3.select("body").append("svg").attr("width", 460).attr("height", 930);
+
+
+		var g = [svg.append("g").attr("transform", "translate(10,30)")];
+
+		// var bp = [viz.bP()
+		// 	.data(data)
+		// 	.min(12)
+		// 	.pad(1)
+		// 	.height(850)
+		// 	.width(200)
+		// 	.barSize(25)
+		// 	.fill(d => color[d.primary])];
+		var datademo = data
+		var bp = [viz.bP()
+			.data(data)
+			.min(12)
+			.pad(1)
+			.height(900)
+			.width(200)
+			.barSize(25)
+			.fill(d => color[d.primary])];
+
+		[0].forEach(function (i) {
+			g[i].call(bp[i])
+
+			g[i].append("text")
+				.attr("x", 0)
+				.attr("y", -8)
+				.text("Author");
+			g[i].append("text")
+				.attr("x", 150)
+				.attr("y", -8)
+				.text("Periodical");
+
+			// g[i].append("line").attr("x1", -100).attr("x2", 0);
+			// g[i].append("line").attr("x1", 350).attr("x2", 250);
+
+			// g[i].selectAll(".mainBars").on('mouseover', function (a, b, c) {
+			// 	console.log(g[i])
+			// 	g[i].selectAll(".mainBars").select(".perc")
+			// 		.text(function (a) { return d3.format("  0.0%")(a.percent) });
+			// })
+
+			g[i].selectAll(".mainBars").append("text").attr("class", "label")
+				.attr("x", d => (d.part == "primary" ? -1120 : 20))
+				.attr("y", d => +6)
+				.text(d => d.key)
+				.attr("text-anchor", d => (d.part == "primary" ? "end" : "start"));
+
+
+		});
+		var nowover = ""
+		var nowc;
+		function setname(v) {
+			console.log()
+			if (nowover == v) {
+				return
+			}
+			nowover = v
+			if (nowc) {
+				bp[0].mouseout(nowc)
+			}
+			let value = svg.selectAll('g').selectAll(".mainBars").select(".perc")
+			for (let i in value._parents) {
+				let c = value._parents[i].__data__
+				let jsonstr = JSON.stringify(c)
+				if (jsonstr != undefined) {
+					let json = JSON.parse(jsonstr)
+					if (json.key != undefined) {
+
+						console.log(json.key,v)
+
+						// .split(":")[1]
+						if (json.key== v) {
+							bp[0].mouseover(c)
+							nowc = c
+							break
+						}
+					}
+				}
+
+			}
+		}
+
+		// function mouseover(d) {
+		// 	[0, 1].forEach(function (i) {
+		// 		// bp[i].mouseover(d);
+
+		// 		g[i].selectAll(".mainBars").select(".perc")
+		// 			.text(function (d) { return d3.format("  0.0%")(d.percent) });
+		// 	});
+		// }
+		// function mouseout(d) {
+		// 	[0, 1].forEach(function (i) {
+		// 		// bp[i].mouseout(d);
+
+		// 		g[i].selectAll(".mainBars").select(".perc")
+		// 			.text(function (d) { return d3.format("  0.0%")(d.percent) });
+		// 	});
+		// }
+		// d3.select(self.frameElement).style("height", "600px");
+	</script>
+</body>
+
+</html>

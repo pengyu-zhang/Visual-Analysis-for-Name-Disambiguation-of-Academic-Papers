@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+text{
+	font-size:16px;
+}
+.mainBars rect{
+  shape-rendering: auto;
+  fill-opacity: 0;
+  stroke-width: 0.5px; 
+  stroke: rgb(0, 0, 0);
+  stroke-opacity: 0;
+}
+.subBars{
+	shape-rendering:crispEdges;
+}
+.edges{
+	stroke:none;
+	fill-opacity:0.5;
+}
+.header{
+	text-anchor:middle;
+	font-size:16px;
+}
+line{
+	stroke:grey;
+}
+</style>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
+<script>
+
+var data=[//['Teacher-N','分析化学',16,0],
+['Teacher-A:1001','激光杂志',1,1],
+['Teacher-A:1001','哈尔滨工业大学学报',1,1],
+['Teacher-A:1001','IET COMMUNICATIONS',1,1],
+['Teacher-A:1001','计算机仿真',1,1],
+['Teacher-A:1001','北京工业大学学报',1,1],
+['Teacher-A:1001','北京交通大学学报',1,1],
+['Teacher-A:1001','AUTOMATION IN CONSTRUCTION',1,1],
+['Teacher-A:1001','IEEE Transactions on Intelligent Transportation Systems',2,1],
+['Teacher-A:1001','ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING',1,1],
+['Teacher-A:1001','APPLIED SCIENCES-BASEL',2,1],
+['Teacher-A:1001','Information (Switzerland)',1,1],
+['Teacher-A:1001','International Journal of Intelligent Transportation Systems Research',1,1],
+['Teacher-A:1001','交通工程',1,1],
+
+['Teacher-B:1002','哈尔滨工业大学学报',1,1],
+
+['Teacher-C:1003','IET COMMUNICATIONS',1,1],
+
+['Teacher-D:1004','北京工业大学学报',1,1],
+['Teacher-D:1004','ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING',1,1],
+['Teacher-D:1004','APPLIED SCIENCES-BASEL',1,1],
+
+['Teacher-E:1005','AUTOMATION IN CONSTRUCTION',1,1],
+
+['Teacher-F:1006','ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING',1,1],
+['Teacher-F:1006','交通工程',1,1],
+
+['Teacher-G:1007','ISPRS JOURNAL OF PHOTOGRAMMETRY AND REMOTE SENSING',1,1],
+['Teacher-G:1007','APPLIED SCIENCES-BASEL',1,1],
+
+['Teacher-H:1008','APPLIED SCIENCES-BASEL',1,1],
+
+['Teacher-I:1009','APPLIED SCIENCES-BASEL',1,1],
+['Teacher-I:1009','International Journal of Intelligent Transportation Systems Research',1,1],
+
+['Teacher-J:1010','IEEE Transactions on Intelligent Transportation Systems',1,1],
+
+['Teacher-K:1011','IEEE Transactions on Intelligent Transportation Systems',1,1],
+
+['Teacher-L:1012','IEEE Transactions on Intelligent Transportation Systems',1,1],
+
+['Teacher-M:1013','交通工程',1,1],
+
+
+// ['秦振平','Water Environment Research',395,1],
+// ['Teacher-N','Atmospheric Environment',7232,58],
+// ['Teacher-O','Atmospheric Environment',1272,0],
+// ['Teacher-P','Atmospheric Environment',1896,0],
+// ['崔素萍','Atmospheric Environment',1,0],
+// ['秦振平','Atmospheric Environment',10782,33],
+// ['秦振平','Atmospheric Environment',1911,3],
+// ['Teacher-O','Thermal Science',495,0],
+// ['Teacher-P','Thermal Science',32,0],
+// ['崔素萍','Thermal Science',7,0],
+// ['秦振平','Thermal Science',1557,12],
+// ['秦振平','Thermal Science',24,0],
+// ['Teacher-O','Fresenius Environmental Bulletin',460,1],
+// ['崔素萍','Fresenius Environmental Bulletin',88,3],
+// ['秦振平','Fresenius Environmental Bulletin',956,3],
+// ['Teacher-O','稀有金属材料与工程',232,0],
+// ['Teacher-P','稀有金属材料与工程',71,0],
+// ['秦振平','稀有金属材料与工程',575,2],
+// ['秦振平','稀有金属材料与工程',368,3]
+];
+var color ={"Teacher-A:1001":"#3366CC",  "Teacher-B:1002":"#FF9900", 'Teacher-C:1003':"#109618", 'Teacher-D:1004':"#990099", 'Teacher-E:1005':"#9F79EE",
+'Teacher-F:1006':"#3366FF", 'Teacher-G:1007':"#DC3912",  'Teacher-H:1008':"#C4C4C4", 'Teacher-I:1009':"#8B3626", 'Teacher-J:1010':"#218868", 'Teacher-K:1011':"#0099C6"
+, 'Teacher-L:1012':"#EE9572", 'Teacher-M:1013':"#B2DFEE"};
+var svg = d3.select("body").append("svg").attr("width", 660).attr("height", 1000);
+
+
+var g =[svg.append("g").attr("transform","translate(105,30)")];
+
+var bp=[ viz.bP()
+		.data(data)
+		.min(12)
+		.pad(1)
+		.height(950)
+		.width(150)
+		.barSize(25)
+		.fill(d=>color[d.primary])];
+		
+[0,1].forEach(function(i){
+	g[i].call(bp[i])
+	
+	g[i].append("text").attr("x",-50).attr("y",-8).style("text-anchor","middle").text("人名");
+	g[i].append("text").attr("x", 200).attr("y",-8).style("text-anchor","middle").text("期刊名");
+	
+	g[i].append("line").attr("x1",-100).attr("x2",0);
+	g[i].append("line").attr("x1",150).attr("x2",250);
+	
+	g[i].selectAll(".mainBars")
+		.on("mouseover",mouseover)
+		.on("mouseout",mouseout);
+
+	g[i].selectAll(".mainBars").append("text").attr("class","label")
+		.attr("x",d=>(d.part=="primary"? -20: 20))
+		.attr("y",d=>+6)
+		.text(d=>d.key)
+		.attr("text-anchor",d=>(d.part=="primary"? "end": "start"));
+	
+
+});
+
+function mouseover(d){
+	[0,1].forEach(function(i){
+		bp[i].mouseover(d);
+		
+		g[i].selectAll(".mainBars").select(".perc")
+		.text(function(d){ return d3.format("  0.0%")(d.percent)});
+	});
+}
+function mouseout(d){
+	[0,1].forEach(function(i){
+		bp[i].mouseout(d);
+		
+		g[i].selectAll(".mainBars").select(".perc")
+		.text(function(d){ return d3.format("  0.0%")(d.percent)});
+	});
+}
+d3.select(self.frameElement).style("height", "600px");
+</script>
+</body>
+</html>

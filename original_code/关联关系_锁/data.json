@@ -1,0 +1,199 @@
+{
+  "nodes": [{
+      "id": "m-1",
+      "age": 20,
+      "name": "Teacher-A:1001",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-2",
+      "age": 15,
+      "name": "Teacher-B:1002",
+      "loaded": true,
+      "auras": ["HR"]
+    },
+    {
+      "id": "m-3",
+      "age": 16,
+      "name": "Teacher-C:1003",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-4",
+      "age": 35,
+      "name": "Teacher-D:1004",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-7",
+      "age": 37,
+      "name": "Teacher-E:1005",
+      "loaded": true,
+      "auras": ["HR"]
+    },
+    {
+      "id": "m-8",
+      "age": 60,
+      "name": "Teacher-F:1006",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-9",
+      "age": 63,
+      "name": "Teacher-G:1007",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-10",
+      "age": 17,
+      "name": "Teacher-H:1008",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-11",
+      "age": 21,
+      "name": "Teacher-I:1009",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "m-12",
+      "age": 26,
+      "name": "Teacher-J:1010",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+    {
+      "id": "m-13",
+      "age": 29,
+      "name": "Teacher-K:1011",
+      "loaded": true,
+      "auras": ["friend"]
+    },
+
+    {
+      "id": "f-1",
+      "age": 28,
+      "name": "Teacher-L:1012",
+      "loaded": true,
+      "auras": ["Administration"]
+    },
+    {
+      "id": "f-2",
+      "age": 21,
+      "name": "Teacher-M:1013",
+      "loaded": true,
+      "auras": ["Board"]
+    }
+  ],
+
+  "links": [{
+      "id": "l01",
+      "from": "m-1",
+      "to": "m-2",
+      "type": "friend"
+    },
+    {
+      "id": "l02",
+      "from": "m-1",
+      "to": "m-3",
+      "type": "friend"
+    },
+    {
+      "id": "l03",
+      "from": "m-1",
+      "to": "m-4",
+      "type": "friend"
+    },
+    {
+      "id": "l04",
+      "from": "m-1",
+      "to": "m-7",
+      "type": "friend"
+    },
+    {
+      "id": "l07",
+      "from": "m-1",
+      "to": "m-8",
+      "type": "collegue"
+    },
+    {
+      "id": "l15",
+      "from": "m-1",
+      "to": "m-9",
+      "type": "friend"
+    },
+    {
+      "id": "l23",
+      "from": "m-1",
+      "to": "m-10",
+      "type": "collegue"
+    },
+    {
+      "id": "l28",
+      "from": "m-1",
+      "to": "m-11",
+      "type": "friend"
+    },
+    {
+      "id": "l29",
+      "from": "m-1",
+      "to": "m-12",
+      "type": "friend"
+    },
+    {
+      "id": "l30",
+      "from": "m-1",
+      "to": "m-13",
+      "type": "friend"
+    },
+    {
+      "id": "l31",
+      "from": "m-1",
+      "to": "f-1",
+      "type": "friend"
+    },
+    {
+      "id": "l32",
+      "from": "m-1",
+      "to": "f-2",
+      "type": "friend"
+    },
+    {
+      "id": "l33",
+      "from": "m-10",
+      "to": "m-11",
+      "type": "friend"
+    },
+    {
+      "id": "l34",
+      "from": "m-11",
+      "to": "m-12",
+      "type": "friend"
+    },
+    {
+      "id": "l35",
+      "from": "m-12",
+      "to": "m-13",
+      "type": "friend"
+    },
+    {
+      "id": "l106",
+      "from": "m-7",
+      "to": "m-9",
+      "type": "collegue"
+    },
+    {
+      "id": "l141",
+      "from": "f-2",
+      "to": "m-4",
+      "type": "collegue"
+    }
+  ]
+}

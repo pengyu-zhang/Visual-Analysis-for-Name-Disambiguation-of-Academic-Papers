@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .out-div {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+
+        .iframe-class {
+            /* width: 50%; */
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out-div">
+        <iframe src="./b/index.html" frameborder="0" class="iframe-class" style="width: 990px;"></iframe>
+        <iframe src="./a/index.html" frameborder="0" class="iframe-class treecharts" style="width: calc(100% - 990px);"></iframe>
+    </div>
+</body>
+
+<script>
+    function getname(name) {
+        // console.log(name)
+        $(".treecharts")[0].contentWindow.setname(name)
+        // var ifr = document.getElementsByClassName('treecharts')
+        // var win = ifr.window || ifr.contentWindow;
+        // win.setname(name); // 调用iframe中的a函数
+    }
+</script>
+
+</html>

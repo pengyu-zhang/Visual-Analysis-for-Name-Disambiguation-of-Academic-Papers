@@ -1,0 +1,21 @@
+# Normalize line endings; shell scripts must always be LF
+* text=auto
+*.sh text eol=lf
+*.py text
+*.js text
+*.html text
+*.css text
+*.json text
+*.csv text
+*.md text
+*.yaml text
+*.yml text
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.cur binary
+*.woff2 binary
+*.svg text

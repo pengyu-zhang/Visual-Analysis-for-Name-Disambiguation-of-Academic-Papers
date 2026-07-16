@@ -1,0 +1,335 @@
+{
+  "nodes": [{
+      "id": "m-1",
+      "age": 20,
+      "name": "Jinpei Cheng",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Ao Yu",
+      "age": 15,
+      "name": "Lihong Chen",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Chen Yang",
+      "age": 16,
+      "name": "Chen Yang",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Xiaosong Xue",
+      "age": 35,
+      "name": "Xiaosong Xue",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Xin Li",
+      "age": 37,
+      "name": "Xin Li",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Shu Chien",
+      "age": 60,
+      "name": "Shu Chien",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Runsheng Chen",
+      "age": 63,
+      "name": "Runsheng Chen",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Yongfei Zheng",
+      "age": 17,
+      "name": "Yongfei Zheng",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "YanYan Zhao",
+      "age": 21,
+      "name": "YanYan Zhao",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Lifei Zhang",
+      "age": 26,
+      "name": "Lifei Zhang",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Ligang Zhou",
+      "age": 29,
+      "name": "Ligang Zhou",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+
+    {
+      "id": "Yingming Sheng",
+      "age": 28,
+      "name": "Yingming Sheng",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Li Jie",
+      "age": 21,
+      "name": "Li Jie",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Weidong Sun",
+      "age": 21,
+      "name": "Weidong Sun",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Bin Fu",
+      "age": 21,
+      "name": "Bin Fu",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Jochen Hoefs",
+      "age": 21,
+      "name": "Jochen Hoefs",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Shan Gao",
+      "age": 21,
+      "name": "Shan Gao",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Fukun Chen",
+      "age": 21,
+      "name": "Fukun Chen",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Yueheng Yang",
+      "age": 21,
+      "name": "Yueheng Yang",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Lihong Chen",
+      "age": 21,
+      "name": "Ao Yu",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Zongyao Wen",
+      "age": 21,
+      "name": "Zongyao Wen",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Weibo Ka",
+      "age": 21,
+      "name": "Weibo Ka",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Ding-Yu Lee",
+      "age": 21,
+      "name": "Ding-Yu Lee",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Si-Shen Feng",
+      "age": 21,
+      "name": "Si-Shen Feng",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Ying Wang",
+      "age": 21,
+      "name": "Ying Wang",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Yan-Ting Shiu",
+      "age": 21,
+      "name": "Yan-Ting Shiu",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Sung Sik Hur",
+      "age": 21,
+      "name": "Sung Sik Hur",
+      "loaded": true,
+      "auras": ["Board"]
+    },
+    {
+      "id": "Yuhui Jiang",
+      "age": 21,
+      "name": "Yuhui Jiang",
+      "loaded": true,
+      "auras": ["Sales"]
+    },
+    {
+      "id": "Li-Jing Chen",
+      "age": 21,
+      "name": "Li-Jing Chen",
+      "loaded": true,
+      "auras": ["Sales"]
+    }
+  ],
+
+  "links": [{
+      "id": "l01",
+      "from": "m-1",
+      "to": "Ao Yu",
+      "type": "friend"
+    },
+    {
+      "id": "l02",
+      "from": "m-1",
+      "to": "Chen Yang",
+      "type": "friend"
+    },
+    {
+      "id": "l03",
+      "from": "m-1",
+      "to": "Xiaosong Xue",
+      "type": "friend"
+    },
+    {
+      "id": "l04",
+      "from": "m-1",
+      "to": "Xin Li",
+      "type": "friend"
+    },
+    {
+      "id": "l07",
+      "from": "m-1",
+      "to": "Shu Chien",
+      "type": "collegue"
+    },
+    {
+      "id": "l15",
+      "from": "m-1",
+      "to": "Runsheng Chen",
+      "type": "friend"
+    },
+    {
+      "id": "l23",
+      "from": "m-1",
+      "to": "Yongfei Zheng",
+      "type": "collegue"
+    },
+    {
+      "id": "l28",
+      "from": "m-1",
+      "to": "YanYan Zhao",
+      "type": "friend"
+    },
+    {
+      "id": "l32",
+      "from": "m-1",
+      "to": "Li Jie",
+      "type": "friend"
+    },
+    {
+      "id": "l33",
+      "from": "Yongfei Zheng",
+      "to": "YanYan Zhao",
+      "type": "friend"
+    },
+    {
+      "id": "l35",
+      "from": "Lifei Zhang",
+      "to": "Ligang Zhou",
+      "type": "friend"
+    },
+    {
+      "id": "l36",
+      "from": "Lifei Zhang",
+      "to": "Yingming Sheng",
+      "type": "friend"
+    },
+    {
+      "id": "l37",
+      "from": "Lifei Zhang",
+      "to": "Li Jie",
+      "type": "friend"
+    },
+    {
+      "id": "l46",
+      "from": "Xin Li",
+      "to": "Runsheng Chen",
+      "type": "collegue"
+    },
+    {
+      "id": "l47",
+      "from": "Li Jie",
+      "to": "Xiaosong Xue",
+      "type": "collegue"
+    },
+    {
+      "id": "l48",
+      "from": "Li Jie",
+      "to": "Bin Fu",
+      "type": "collegue"
+    },
+    {
+      "id": "l49",
+      "from": "Bin Fu",
+      "to": "Jochen Hoefs",
+      "type": "collegue"
+    },
+    {
+      "id": "l50",
+      "from": "Bin Fu",
+      "to": "Shan Gao",
+      "type": "collegue"
+    },
+    {
+      "id": "l51",
+      "from": "Bin Fu",
+      "to": "Fukun Chen",
+      "type": "collegue"
+    },
+    {
+      "id": "l53",
+      "from": "Li Jie",
+      "to": "Lihong Chen",
+      "type": "collegue"
+    },
+    {
+      "id": "l57",
+      "from": "Li Jie",
+      "to": "Si-Shen Feng",
+      "type": "collegue"
+    }
+  ]
+}

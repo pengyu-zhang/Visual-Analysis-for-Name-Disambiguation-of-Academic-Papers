@@ -1,0 +1,302 @@
+{
+    "f-1": [
+        {
+            "name": "AUSTRIA-2005",
+            "value": 4,
+            "continent": "Europe",
+            "country": "AUSTRIA",
+            "year": "2005"
+        },
+        {
+            "name": "AUSTRIA-2006",
+            "value": 14,
+            "continent": "Europe",
+            "country": "AUSTRIA",
+            "year": "2006"
+        },
+        {
+            "name": "AUSTRIA-2007",
+            "value": 3,
+            "continent": "Europe",
+            "country": "AUSTRIA",
+            "year": "2007"
+        }
+    ],
+    "f-2": [
+        {
+            "name": "f-2-2005",
+            "value": 48,
+            "continent": "Europe",
+            "country": "f-2",
+            "year": "2005"
+        },
+        {
+            "name": "f-2-2006",
+            "value": 15,
+            "continent": "Europe",
+            "country": "f-2",
+            "year": "2006"
+        },
+        {
+            "name": "f-2-2007",
+            "value": 60,
+            "continent": "Europe",
+            "country": "f-2",
+            "year": "2007"
+        }
+    ],
+    "m-1": [
+        {
+            "name": "m-1-2005",
+            "value": 10,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 120,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 26,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-2": [
+        {
+            "name": "m-1-2005",
+            "value": 10,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 120,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 26,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-3": [
+        {
+            "name": "m-1-2005",
+            "value": 120,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 160,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 126,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-4": [
+        {
+            "name": "m-1-2005",
+            "value": 170,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 140,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 166,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-7": [
+        {
+            "name": "m-1-2005",
+            "value": 110,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 170,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 126,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-8": [
+        {
+            "name": "m-1-2005",
+            "value": 180,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 130,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 126,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-9": [
+        {
+            "name": "m-1-2005",
+            "value": 180,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 140,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 26,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-10": [
+        {
+            "name": "m-1-2005",
+            "value": 150,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 100,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 216,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-11": [
+        {
+            "name": "m-1-2005",
+            "value": 130,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 120,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 126,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-12": [
+        {
+            "name": "m-1-2005",
+            "value": 190,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 140,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 126,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ],
+    "m-13": [
+        {
+            "name": "m-1-2005",
+            "value": 110,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2005"
+        },
+        {
+            "name": "m-1-2006",
+            "value": 150,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2006"
+        },
+        {
+            "name": "m-1-2007",
+            "value": 216,
+            "continent": "Europe",
+            "country": "m-1",
+            "year": "2007"
+        }
+    ]
+    
+}
