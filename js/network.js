@@ -225,8 +225,8 @@ const Network = {
     layer.selectAll("g.donut").remove();
 
     const ds = State.dataset;
-    const entries = [...node.author.directions.entries()];
-    const pie = d3.pie().value(d => d[1])(entries);
+    const entries = [...node.author.directions.entries()].sort((a, b) => b[1] - a[1]);
+    const pie = d3.pie().value(d => d[1]).sort(null)(entries);
     const arc = d3.arc().innerRadius(r + 3).outerRadius(r + 16);
     const g = layer.append("g")
       .attr("class", "donut")
@@ -238,11 +238,30 @@ const Network = {
       .attr("fill", d => ds.directionColors.get(d.data[0]) || "#ccc")
       .attr("stroke", "#fff")
       .attr("stroke-width", 1);
-    g.selectAll("text").data(pie).join("text")
-      .attr("transform", d => `translate(${arc.centroid(d).map(v => v * 1.9)})`)
-      .attr("text-anchor", "middle")
-      .attr("font-size", 9.5)
-      .text(d => `${d.data[0]} (${d.data[1]})`);
+
+    // compact legend list beside the node instead of radial labels
+    // (labels around thin slices overlap)
+    const lineH = 15, x0 = r + 24;
+    const legend = g.append("g");
+    legend.append("rect")
+      .attr("x", x0 - 6)
+      .attr("y", -entries.length * lineH / 2 - 5)
+      .attr("width", 12 + 7 * Math.max(...entries.map(e => `${e[0]} (${e[1]})`.length)))
+      .attr("height", entries.length * lineH + 10)
+      .attr("rx", 4)
+      .attr("fill", "rgba(255,255,255,0.92)")
+      .attr("stroke", "#d8dde3");
+    entries.forEach(([dir, count], i) => {
+      const y = -entries.length * lineH / 2 + i * lineH + 7;
+      legend.append("rect")
+        .attr("x", x0).attr("y", y - 8)
+        .attr("width", 9).attr("height", 9).attr("rx", 2)
+        .attr("fill", ds.directionColors.get(dir) || "#ccc");
+      legend.append("text")
+        .attr("x", x0 + 14).attr("y", y)
+        .attr("font-size", 10.5)
+        .text(`${dir} (${count})`);
+    });
   },
 
   showContextMenu(event, name) {
@@ -282,10 +301,13 @@ const Network = {
         .classed("dimmed", d => selected.length && !selected.includes(d.id));
       inst.svg.selectAll(".net-label")
         .classed("dimmed", d => selected.length && !selected.includes(d.id));
-      inst.svg.selectAll(".net-link")
+      const links = inst.svg.selectAll(".net-link")
         .classed("strong", l => strong.has(State.linkKey(l.source.id, l.target.id)))
         .classed("dimmed", l => selected.length &&
           !selected.includes(l.source.id) && !selected.includes(l.target.id));
+      // paint strong / non-dimmed links above faded ones
+      links.filter(function () { return !this.classList.contains("dimmed"); }).raise();
+      links.filter(".strong").raise();
     }
   },
 

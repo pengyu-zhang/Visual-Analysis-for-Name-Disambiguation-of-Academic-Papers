@@ -8,9 +8,9 @@ const WordCloud = {
       .slice(0, CONFIG.wordcloud.maxWords);
     if (!entries.length) return;
 
-    const width = 340, height = 180;
+    const width = 300, height = 148;
     const maxCount = entries[0][1];
-    const size = d3.scaleSqrt().domain([1, Math.max(2, maxCount)]).range([11, 30]);
+    const size = d3.scaleSqrt().domain([1, Math.max(2, maxCount)]).range([10, 26]);
     const words = entries.map(([text, count]) => ({ text, size: size(count), count }));
 
     const rng = mulberry32(CONFIG.seed);

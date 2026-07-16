@@ -156,11 +156,13 @@ const SankeyView = {
    * clicking a node keeps only that author's journals). */
   updateHighlights(hovered = null) {
     const selected = State.selectedAuthors;
-    d3.select("#sankey-container").selectAll(".sankey-link")
+    const links = d3.select("#sankey-container").selectAll(".sankey-link")
       .classed("dimmed", function () {
         const author = this.dataset.author;
         if (hovered) return author !== hovered;
         return selected.length && !selected.includes(author);
       });
+    // SVG paints in document order: keep highlighted flows above faded ones
+    links.filter(function () { return !this.classList.contains("dimmed"); }).raise();
   },
 };

@@ -16,6 +16,13 @@ const Query = {
     const authors = [...new Set(State.allPapers.flatMap(p => p.authors))].sort();
     const years = [...new Set(State.allPapers.map(p => p.year).filter(Boolean))].sort();
 
+    // after a split, the searched base name is gone from the data but still
+    // matches its "Name 01/02/…" variants — keep it selectable
+    const q = State.query.author;
+    if (q && !authors.includes(q) && authors.some(a => a.startsWith(q + " "))) {
+      authors.unshift(q);
+    }
+
     const fill = (id, values, anyLabel, current) => {
       const sel = document.getElementById(id);
       sel.innerHTML = "";

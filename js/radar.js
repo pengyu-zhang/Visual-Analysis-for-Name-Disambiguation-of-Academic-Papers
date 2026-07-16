@@ -4,7 +4,7 @@
 const Radar = {
   render(container, metrics, color) {
     container.innerHTML = "";
-    const size = 210, levels = 5, maxValue = 5;
+    const size = 188, levels = 5, maxValue = 5;
     const radius = size / 2 - 34;
     const center = size / 2;
     const angle = i => (Math.PI * 2 * i) / metrics.length - Math.PI / 2;

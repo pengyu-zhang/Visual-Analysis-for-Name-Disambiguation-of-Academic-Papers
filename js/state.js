@@ -35,7 +35,15 @@ const State = {
     if (startYear) papers = papers.filter(p => !p.year || p.year >= startYear);
     if (endYear) papers = papers.filter(p => !p.year || p.year <= endYear);
     if (author) {
-      const team = new Set([author]);
+      // seed with the exact name and any split variants ("Name 01", "Name 02"
+      // …), so a search still works after disambiguation (paper fig. 9)
+      const team = new Set();
+      for (const p of papers) {
+        for (const a of p.authors) {
+          if (a === author || a.startsWith(author + " ")) team.add(a);
+        }
+      }
+      if (team.size === 0) team.add(author);
       let size = 0;
       while (team.size !== size) {
         size = team.size;
@@ -101,6 +109,7 @@ const State = {
       .map(p => (p.authors.includes(name)
         ? { ...p, authors: p.authors.filter(a => a !== name) }
         : p));
+    if (this.query.author === name) this.query.author = "";
     this.applyQuery();
   },
 

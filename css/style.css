@@ -190,8 +190,9 @@ table.papers tr:hover td { background: #f2f7fd; }
 }
 
 #info-author, #info-journal { padding: 10px 14px; }
-.info-grid { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
-.info-block { border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+/* one row, horizontally scrollable, so no widget is ever clipped vertically */
+.info-grid { display: flex; flex-wrap: nowrap; gap: 12px; align-items: stretch; overflow-x: auto; }
+.info-block { border: 1px solid var(--border); border-radius: 6px; padding: 8px; flex-shrink: 0; }
 .info-block h4 { margin: 0 0 6px; font-size: 12.5px; color: var(--muted); font-weight: 600; }
 .info-meta { line-height: 1.8; }
 .info-meta b { font-size: 16px; }

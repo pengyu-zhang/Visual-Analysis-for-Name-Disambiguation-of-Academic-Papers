@@ -81,13 +81,31 @@ const Analysis = {
           : "#8da4b8")
       .attr("stroke", "#697786");
 
-    node.append("text")
+    // the root sits at the center: keep its label horizontal above the node
+    // (rotated placement would collide with the first ring)
+    node.filter(d => d.depth === 0).append("text")
+      .attr("transform", d => `rotate(${90 - (d.x * 180) / Math.PI})`)
+      .attr("y", -24)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 14)
+      .attr("font-weight", 600)
+      .text(d => d.data.name);
+
+    // direction nodes are few: keep their labels horizontal too
+    node.filter(d => d.data.kind === "direction").append("text")
+      .attr("transform", d => `rotate(${90 - (d.x * 180) / Math.PI})`)
+      .attr("y", 22)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      .attr("font-weight", 600)
+      .text(d => d.data.name);
+
+    node.filter(d => d.data.kind === "keyword").append("text")
       .attr("dy", "0.32em")
-      .attr("x", d => (d.x < Math.PI === !d.children ? 10 : -10))
-      .attr("text-anchor", d => (d.x < Math.PI === !d.children ? "start" : "end"))
+      .attr("x", d => (d.x < Math.PI ? 12 : -12))
+      .attr("text-anchor", d => (d.x < Math.PI ? "start" : "end"))
       .attr("transform", d => (d.x >= Math.PI ? "rotate(180)" : null))
-      .attr("font-size", d => (d.data.kind === "author" ? 14 : d.data.kind === "direction" ? 12 : 10.5))
-      .attr("font-weight", d => (d.data.kind === "keyword" ? 400 : 600))
-      .text(d => d.data.kind === "keyword" ? `${d.data.name} (${d.data.count})` : d.data.name);
+      .attr("font-size", 10.5)
+      .text(d => `${d.data.name} (${d.data.count})`);
   },
 };
