@@ -7,6 +7,8 @@ Interactive visual-analytics system accompanying
 > *Journal of Computer-Aided Design & Computer Graphics* 34(11): 1659–1672, 2022.
 > [DOI](https://doi.org/10.3724/SP.J.1089.2022.19191) · [Paper PDF](https://pengyu-zhang.github.io/pdf/Visual_Analysis.pdf) · Demo video: [YouTube](https://www.youtube.com/watch?v=jQ8MNu-L-Os) / [Bilibili](https://www.bilibili.com/video/BV1QM4m1k77Q/)
 
+**▶ [Live demo](https://pengyu-zhang.github.io/Visual-Analysis-for-Name-Disambiguation-of-Academic-Papers/)** — the app runs entirely in the browser; no installation needed.
+
 ## Method
 
 When different authors share one name, research offices and retrieval systems
@@ -54,6 +56,10 @@ Any modern browser plus any static HTTP server — Python 3 is enough. There
 are no packages to install, no build step, and no backend.
 
 ## Quick start
+
+No installation at all: open the
+[live demo](https://pengyu-zhang.github.io/Visual-Analysis-for-Name-Disambiguation-of-Academic-Papers/)
+hosted on GitHub Pages. To run locally:
 
 ```bash
 bash scripts/run_all.sh        # smoke test, then serve on http://localhost:8000/
