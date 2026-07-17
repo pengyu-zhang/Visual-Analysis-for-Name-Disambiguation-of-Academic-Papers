@@ -68,7 +68,7 @@ const SankeyView = {
       .text(t("journal"));
 
     const authorColor = new Map(authors.map(a => [a.name, a.color]));
-    const hover = name => this.updateHighlights(name);
+    const hover = (author, journal = null) => this.updateHighlights(author, journal);
 
     svg.append("g").selectAll("path").data(graph.links).join("path")
       .attr("class", "sankey-link")
@@ -78,6 +78,7 @@ const SankeyView = {
       .attr("stroke-width", d => Math.max(2, d.width))
       .attr("stroke-opacity", 0.5)
       .attr("data-author", d => d.author)
+      .attr("data-journal", d => d.target.name)
       .on("mouseover", (e, d) => {
         hover(d.author);
         Tooltip.show(e, `${d.author} → ${d.target.name}<br>${d.value} ${t("papersCount")}`);
@@ -117,7 +118,11 @@ const SankeyView = {
         .attr("stroke", "#8894a0")
         .attr("stroke-width", 0.5)
         .style("cursor", "pointer")
-        .on("click", () => self.clickNode(d));
+        .on("click", () => self.clickNode(d))
+        // paper fig. 3 (d)(e): hovering a journal keeps only its incoming
+        // flows, revealing which team authors publish there
+        .on("mouseover", () => self.updateHighlights(null, d.name))
+        .on("mouseout", () => self.updateHighlights(null, null));
     });
     nodeSel.filter(d => d.kind === "author").select("rect")
       .style("cursor", "pointer")
@@ -134,7 +139,8 @@ const SankeyView = {
       .attr("font-weight", d => d.kind === "author" ? 600 : 400)
       .text(d => d.name.length > 26 ? d.name.slice(0, 24) + "…" : d.name)
       .on("click", (e, d) => this.clickNode(d))
-      .on("mouseover", (e, d) => { if (d.kind === "author") hover(d.name); })
+      .on("mouseover", (e, d) =>
+        d.kind === "author" ? hover(d.name) : hover(null, d.name))
       .on("mouseout", () => hover(null))
       .append("title").text(d => d.name);
 
@@ -151,16 +157,17 @@ const SankeyView = {
     }
   },
 
-  /* When authors are selected (or hovered), fade the flows of every other
-   * author to a pale blue, as in the original prototype (paper fig. 3:
-   * clicking a node keeps only that author's journals). */
-  updateHighlights(hovered = null) {
+  /* Fade non-relevant flows to a pale blue, as in the original prototype.
+   * Hovering an author keeps that author's journals (paper fig. 3 b/c);
+   * hovering a journal keeps the authors publishing in it (fig. 3 d/e);
+   * otherwise the selection state applies. */
+  updateHighlights(hoveredAuthor = null, hoveredJournal = null) {
     const selected = State.selectedAuthors;
     const links = d3.select("#sankey-container").selectAll(".sankey-link")
       .classed("dimmed", function () {
-        const author = this.dataset.author;
-        if (hovered) return author !== hovered;
-        return selected.length && !selected.includes(author);
+        if (hoveredAuthor) return this.dataset.author !== hoveredAuthor;
+        if (hoveredJournal) return this.dataset.journal !== hoveredJournal;
+        return selected.length && !selected.includes(this.dataset.author);
       });
     // SVG paints in document order: keep highlighted flows above faded ones
     links.filter(function () { return !this.classList.contains("dimmed"); }).raise();
