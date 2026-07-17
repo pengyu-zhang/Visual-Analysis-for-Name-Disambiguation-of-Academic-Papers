@@ -23,22 +23,32 @@ const Query = {
       authors.unshift(q);
     }
 
+    // program-generated disambiguation candidates (paper section 2, S1)
+    const candidates = Pipeline.disambiguationCandidates(State.allPapers);
+
+    const sel = document.getElementById("author-select");
+    sel.innerHTML = "";
+    sel.appendChild(new Option(t("allAuthors"), ""));
+    const addGroup = (label, names) => {
+      if (!names.length) return;
+      const group = document.createElement("optgroup");
+      group.label = label;
+      for (const name of names) {
+        group.appendChild(new Option(name, name, false, name === q));
+      }
+      sel.appendChild(group);
+    };
+    addGroup(t("candidateAuthors"), candidates);
+    addGroup(t("otherAuthors"), authors.filter(a => !candidates.includes(a)));
+
     const fill = (id, values, anyLabel, current) => {
-      const sel = document.getElementById(id);
-      sel.innerHTML = "";
-      const any = document.createElement("option");
-      any.value = "";
-      any.textContent = anyLabel;
-      sel.appendChild(any);
+      const el = document.getElementById(id);
+      el.innerHTML = "";
+      el.appendChild(new Option(anyLabel, ""));
       for (const v of values) {
-        const opt = document.createElement("option");
-        opt.value = v;
-        opt.textContent = v;
-        if (String(current ?? "") === String(v)) opt.selected = true;
-        sel.appendChild(opt);
+        el.appendChild(new Option(v, v, false, String(current ?? "") === String(v)));
       }
     };
-    fill("author-select", authors, t("allAuthors"), State.query.author);
     fill("start-year", years, t("anyYear"), State.query.startYear);
     fill("end-year", years, t("anyYear"), State.query.endYear);
   },

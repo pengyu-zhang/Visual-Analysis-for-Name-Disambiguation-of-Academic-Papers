@@ -79,6 +79,9 @@ import their own CSV and export the corrected one.
 | Journal view (§6.3) | viz.js bipartite bars | d3-sankey flow diagram — the paper describes a Sankey (`js/sankey.js`) |
 | Full-screen mode (§6.3(3)) | separate Axure page | modal with related-papers list, graph, strong-links list (`js/app.js`) |
 | Node add/delete (§6.3(3)) | context-menu mockup only | implemented: delete removes the author from the team; split partitions an author into `Name 01/02/…` by collaborator components, solo papers assigned by keyword overlap (`js/state.js`) — reproduces case study 1 |
+| Strong-link feedback (§6.3(3)) | not implemented | a user-confirmed collaboration counts as extra co-publications in the association-degree score, so confirming a link visibly raises both authors' association (`CONFIG.strongLinkFeedback`, default +2) — the paper feeds strong links back into the classifier, which is external here |
+| Generated disambiguation candidates (§2, S1) | not implemented | the author dropdown lists auto-detected candidates first: names whose co-authors fall into ≥2 disconnected groups once the name is removed — the structural signature of the Wang Wei / Li Jie cases (`Pipeline.disambiguationCandidates`) |
+| Publication-trend comparison (§7.2, fig. 10 / G6) | separate per-author pages | the author-info year chart overlays the team-average trend as a dashed line, so "active only before 2015, unlike the team" is visible at a glance |
 | Basic information (§6.4) | Axure tables + per-author HTML files | paper table, author profile (year bars, keyword cloud, radar), journal profile (`js/tabs.js` + widgets) |
 | Author/paper classification (§5) | not in this project | external by design; the multi-view GCN lives in the [MVMA-GCN](https://github.com/pengyu-zhang/MVMA-GCN) repository. The app accepts per-paper `direction` labels via CSV and otherwise uses a journal-majority heuristic (`js/pipeline.js`) |
 | Unique author colors (§6.3) | fixed hand-picked lists copied into 4 files | the paper's greedy RGB-distance algorithm, seeded and deterministic (`js/colors.js`) |
@@ -170,6 +173,11 @@ Recorded for reference; none of this code is used by the rewrite.
 - The rewrite is a faithful reimplementation of the interaction design, not
   a pixel-level reproduction of the Axure prototype shown in the demo video;
   visual styling differs.
+- Automatic assignment of newly imported papers to previously split author
+  nodes (paper §7.1: "next year's papers are assigned to Wang Wei 01
+  automatically") belongs to the backend classifier and is out of scope for
+  this frontend; splits apply to the current session's dataset and are
+  preserved through Export CSV.
 - The user study (paper §8) applies to the original prototype, not to this
   reimplementation.
 - Association-degree scores depend on the unspecified weights above; rankings

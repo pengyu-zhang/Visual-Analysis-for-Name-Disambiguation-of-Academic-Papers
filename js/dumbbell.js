@@ -16,6 +16,7 @@ const Dumbbell = {
     });
     State.on("dataset", () => this.render());
     State.on("selection", () => this.highlight());
+    State.on("stronglinks", () => this.render());  // feedback changes the scores
     document.addEventListener("langchange", () => this.render());
   },
 

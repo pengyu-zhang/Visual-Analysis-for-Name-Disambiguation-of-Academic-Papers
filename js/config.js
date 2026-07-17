@@ -10,6 +10,11 @@ const CONFIG = {
   // and connection centrality). Weights are adjustable.
   associationWeights: { coPub: 0.4, direction: 0.35, centrality: 0.25 },
 
+  // Strong links mark a collaboration as confirmed by the user; the paper
+  // (section 6.3 (3)) feeds them back into the algorithm. Here they count
+  // as extra co-publications in the association-degree score.
+  strongLinkFeedback: { enabled: true, bonusPapers: 2 },
+
   network: {
     linkDistance: 95,
     chargeStrength: -260,

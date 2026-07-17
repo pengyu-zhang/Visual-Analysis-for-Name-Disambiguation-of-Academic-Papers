@@ -61,7 +61,7 @@ const Pipeline = {
     return Math.round((0.8 + ((h >>> 8) % 7200) / 1000) * 100) / 100;
   },
 
-  build(papers) {
+  build(papers, strongLinks = []) {
     const authors = new Map();
     const links = new Map();
     const journals = new Map();
@@ -131,7 +131,7 @@ const Pipeline = {
     const directions = [...new Set([...authors.values()].map(a => a.direction))].sort();
     const directionColors = new Map(directions.map((d, i) => [d, Colors.directions[i % Colors.directions.length]]));
 
-    this.computeScores(authors, links, papers);
+    this.computeScores(authors, links, papers, strongLinks);
 
     return {
       papers,
@@ -148,7 +148,7 @@ const Pipeline = {
    * (1) co-publications with the team, (2) research-direction overlap with
    * the team and (3) connection centrality. Publication score is the
    * normalized publication count shown as the small blue circle. */
-  computeScores(authors, links, papers) {
+  computeScores(authors, links, papers, strongLinks = []) {
     const n = authors.size;
     const w = CONFIG.associationWeights;
 
@@ -164,6 +164,17 @@ const Pipeline = {
     for (const l of links.values()) {
       copubs.set(l.source, copubs.get(l.source) + l.papers.length);
       copubs.set(l.target, copubs.get(l.target) + l.papers.length);
+    }
+    // user-confirmed collaborations feed back into the score
+    // (paper section 6.3 (3))
+    if (CONFIG.strongLinkFeedback.enabled) {
+      for (const key of strongLinks) {
+        const [a, b] = key.split("||");
+        if (copubs.has(a) && copubs.has(b)) {
+          copubs.set(a, copubs.get(a) + CONFIG.strongLinkFeedback.bonusPapers);
+          copubs.set(b, copubs.get(b) + CONFIG.strongLinkFeedback.bonusPapers);
+        }
+      }
     }
     for (const a of authors.values()) {
       maxima.copub = Math.max(maxima.copub, copubs.get(a.name));
@@ -191,6 +202,43 @@ const Pipeline = {
         pubs: a.papers.length / maxima.pubs,
       };
     }
+  },
+
+  /* Program-generated disambiguation candidates (paper section 2, S1):
+   * names whose co-authors fall apart into two or more disconnected
+   * groups once the name itself is removed from the collaboration graph —
+   * the structural signature of the "Wang Wei" / "Li Jie" case studies. */
+  disambiguationCandidates(papers) {
+    const adj = new Map();
+    const touch = n => { if (!adj.has(n)) adj.set(n, new Set()); return adj.get(n); };
+    for (const p of papers) {
+      for (let i = 0; i < p.authors.length; i++) {
+        touch(p.authors[i]);
+        for (let j = i + 1; j < p.authors.length; j++) {
+          touch(p.authors[i]).add(p.authors[j]);
+          touch(p.authors[j]).add(p.authors[i]);
+        }
+      }
+    }
+    const candidates = [];
+    for (const [name, neighbours] of adj) {
+      if (neighbours.size < 2) continue;
+      const seen = new Set([name]);
+      let components = 0;
+      for (const start of neighbours) {
+        if (seen.has(start)) continue;
+        components++;
+        const stack = [start];
+        while (stack.length) {
+          const cur = stack.pop();
+          if (seen.has(cur)) continue;
+          seen.add(cur);
+          for (const nb of adj.get(cur)) if (!seen.has(nb)) stack.push(nb);
+        }
+      }
+      if (components >= 2) candidates.push(name);
+    }
+    return candidates.sort();
   },
 
   /* Bibliometric radar metrics, normalized to [0, 5]. */

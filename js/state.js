@@ -53,7 +53,7 @@ const State = {
       }
       papers = papers.filter(p => p.authors.some(a => team.has(a)));
     }
-    this.dataset = Pipeline.build(papers);
+    this.dataset = Pipeline.build(papers, this.strongLinks);
     this.selectedAuthors = [];
     this.selectedJournal = null;
     this.excludedAuthors = new Set();
@@ -81,6 +81,12 @@ const State = {
     else this.strongLinks.push(key);
     if (CONFIG.enhancements.persistStrongLinks) {
       try { localStorage.setItem("vand-strong-links", JSON.stringify(this.strongLinks)); } catch (e) { /* ignore */ }
+    }
+    // confirmed collaborations feed back into the association-degree
+    // scores (paper section 6.3 (3))
+    if (this.dataset && CONFIG.strongLinkFeedback.enabled) {
+      Pipeline.computeScores(this.dataset.authors, this.dataset.links,
+        this.dataset.papers, this.strongLinks);
     }
     this.emit("stronglinks");
   },
