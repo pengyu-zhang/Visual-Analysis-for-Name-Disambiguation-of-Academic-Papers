@@ -1,0 +1,21 @@
+# Paper PDF must never be committed
+*.pdf
+
+# Media and design sources (kept outside the repository / attached to Releases)
+*.mp4
+*.rp
+*.rar
+
+# Commercial ZoomCharts library must not be redistributed
+zoomcharts.js
+zoomcharts.zip
+
+# Data and outputs
+data/raw/
+data/processed/
+outputs/
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
+desktop.ini
